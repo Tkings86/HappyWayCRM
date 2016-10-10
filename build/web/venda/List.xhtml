@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListVendaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListVendaEmpty}" rendered="#{vendaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{vendaController.items.rowCount > 0}">
+                    <h:outputText value="#{vendaController.pagination.pageFirstItem + 1}..#{vendaController.pagination.pageLastItem + 1}/#{vendaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{vendaController.previous}" value="#{bundle.Previous} #{vendaController.pagination.pageSize}" rendered="#{vendaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{vendaController.next}" value="#{bundle.Next} #{vendaController.pagination.pageSize}" rendered="#{vendaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{vendaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVendaTitle_codigoVenda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoVenda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVendaTitle_valorVenda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorVenda}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVendaTitle_dataVenda}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dataVenda}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVendaTitle_atribuido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.atribuido}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVendaTitle_codigoPedido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoPedido}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{vendaController.prepareView}" value="#{bundle.ListVendaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{vendaController.prepareEdit}" value="#{bundle.ListVendaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{vendaController.destroy}" value="#{bundle.ListVendaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{vendaController.prepareCreate}" value="#{bundle.ListVendaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListVendaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
