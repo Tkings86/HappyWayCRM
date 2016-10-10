@@ -3,6 +3,7 @@
   <persistence-unit name="HappyWayCRMPU" transaction-type="JTA">
     <jta-data-source>java:app/BDHAPPYWAY</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties/>
+    <properties>
+    </properties>
   </persistence-unit>
 </persistence>
