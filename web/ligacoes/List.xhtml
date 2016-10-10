@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLigacoesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListLigacoesEmpty}" rendered="#{ligacoesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{ligacoesController.items.rowCount > 0}">
+                    <h:outputText value="#{ligacoesController.pagination.pageFirstItem + 1}..#{ligacoesController.pagination.pageLastItem + 1}/#{ligacoesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{ligacoesController.previous}" value="#{bundle.Previous} #{ligacoesController.pagination.pageSize}" rendered="#{ligacoesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{ligacoesController.next}" value="#{bundle.Next} #{ligacoesController.pagination.pageSize}" rendered="#{ligacoesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{ligacoesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_codigoLigacoes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoLigacoes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_assunto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.assunto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_dataLigacao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dataLigacao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_horaLigacao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horaLigacao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_duracaoLigacao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.duracaoLigacao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_descricao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descricao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_referente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.referente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_aviso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aviso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_atribuido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.atribuido}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_nomeConvidado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomeConvidado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_emailConvidado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailConvidado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLigacoesTitle_codigoAtend}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoAtend}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{ligacoesController.prepareView}" value="#{bundle.ListLigacoesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ligacoesController.prepareEdit}" value="#{bundle.ListLigacoesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ligacoesController.destroy}" value="#{bundle.ListLigacoesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{ligacoesController.prepareCreate}" value="#{bundle.ListLigacoesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListLigacoesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

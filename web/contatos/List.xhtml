@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListContatosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListContatosEmpty}" rendered="#{contatosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{contatosController.items.rowCount > 0}">
+                    <h:outputText value="#{contatosController.pagination.pageFirstItem + 1}..#{contatosController.pagination.pageLastItem + 1}/#{contatosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{contatosController.previous}" value="#{bundle.Previous} #{contatosController.pagination.pageSize}" rendered="#{contatosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{contatosController.next}" value="#{bundle.Next} #{contatosController.pagination.pageSize}" rendered="#{contatosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{contatosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContatosTitle_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContatosTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContatosTitle_codigoCliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoCliente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{contatosController.prepareView}" value="#{bundle.ListContatosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{contatosController.prepareEdit}" value="#{bundle.ListContatosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{contatosController.destroy}" value="#{bundle.ListContatosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{contatosController.prepareCreate}" value="#{bundle.ListContatosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListContatosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
