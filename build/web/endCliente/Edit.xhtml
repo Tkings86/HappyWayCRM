@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEndClienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_codigoEnd}" for="codigoEnd" />
+                    <h:inputText id="codigoEnd" value="#{endClienteController.selected.codigoEnd}" title="#{bundle.EditEndClienteTitle_codigoEnd}" required="true" requiredMessage="#{bundle.EditEndClienteRequiredMessage_codigoEnd}"/>
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_rua}" for="rua" />
+                    <h:inputText id="rua" value="#{endClienteController.selected.rua}" title="#{bundle.EditEndClienteTitle_rua}" />
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{endClienteController.selected.numero}" title="#{bundle.EditEndClienteTitle_numero}" />
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_bairro}" for="bairro" />
+                    <h:inputText id="bairro" value="#{endClienteController.selected.bairro}" title="#{bundle.EditEndClienteTitle_bairro}" />
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_complemento}" for="complemento" />
+                    <h:inputText id="complemento" value="#{endClienteController.selected.complemento}" title="#{bundle.EditEndClienteTitle_complemento}" />
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_cidade}" for="cidade" />
+                    <h:inputText id="cidade" value="#{endClienteController.selected.cidade}" title="#{bundle.EditEndClienteTitle_cidade}" />
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_uf}" for="uf" />
+                    <h:inputText id="uf" value="#{endClienteController.selected.uf}" title="#{bundle.EditEndClienteTitle_uf}" />
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_cep}" for="cep" />
+                    <h:inputText id="cep" value="#{endClienteController.selected.cep}" title="#{bundle.EditEndClienteTitle_cep}" />
+                    <h:outputLabel value="#{bundle.EditEndClienteLabel_codigoCliente}" for="codigoCliente" />
+                    <h:selectOneMenu id="codigoCliente" value="#{endClienteController.selected.codigoCliente}" title="#{bundle.EditEndClienteTitle_codigoCliente}" >
+                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{endClienteController.update}" value="#{bundle.EditEndClienteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEndClienteViewLink}"/>
+                <br />
+                <h:commandLink action="#{endClienteController.prepareList}" value="#{bundle.EditEndClienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEndClienteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

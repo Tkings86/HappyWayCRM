@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLigacoesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_codigoLigacoes}" for="codigoLigacoes" />
+                    <h:inputText id="codigoLigacoes" value="#{ligacoesController.selected.codigoLigacoes}" title="#{bundle.CreateLigacoesTitle_codigoLigacoes}" required="true" requiredMessage="#{bundle.CreateLigacoesRequiredMessage_codigoLigacoes}"/>
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_assunto}" for="assunto" />
+                    <h:inputText id="assunto" value="#{ligacoesController.selected.assunto}" title="#{bundle.CreateLigacoesTitle_assunto}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_dataLigacao}" for="dataLigacao" />
+                    <h:inputText id="dataLigacao" value="#{ligacoesController.selected.dataLigacao}" title="#{bundle.CreateLigacoesTitle_dataLigacao}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_horaLigacao}" for="horaLigacao" />
+                    <h:inputText id="horaLigacao" value="#{ligacoesController.selected.horaLigacao}" title="#{bundle.CreateLigacoesTitle_horaLigacao}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_duracaoLigacao}" for="duracaoLigacao" />
+                    <h:inputText id="duracaoLigacao" value="#{ligacoesController.selected.duracaoLigacao}" title="#{bundle.CreateLigacoesTitle_duracaoLigacao}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_descricao}" for="descricao" />
+                    <h:inputText id="descricao" value="#{ligacoesController.selected.descricao}" title="#{bundle.CreateLigacoesTitle_descricao}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{ligacoesController.selected.status}" title="#{bundle.CreateLigacoesTitle_status}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_referente}" for="referente" />
+                    <h:inputText id="referente" value="#{ligacoesController.selected.referente}" title="#{bundle.CreateLigacoesTitle_referente}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_aviso}" for="aviso" />
+                    <h:inputText id="aviso" value="#{ligacoesController.selected.aviso}" title="#{bundle.CreateLigacoesTitle_aviso}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_atribuido}" for="atribuido" />
+                    <h:inputText id="atribuido" value="#{ligacoesController.selected.atribuido}" title="#{bundle.CreateLigacoesTitle_atribuido}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_nomeConvidado}" for="nomeConvidado" />
+                    <h:inputText id="nomeConvidado" value="#{ligacoesController.selected.nomeConvidado}" title="#{bundle.CreateLigacoesTitle_nomeConvidado}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_emailConvidado}" for="emailConvidado" />
+                    <h:inputText id="emailConvidado" value="#{ligacoesController.selected.emailConvidado}" title="#{bundle.CreateLigacoesTitle_emailConvidado}" />
+                    <h:outputLabel value="#{bundle.CreateLigacoesLabel_codigoAtend}" for="codigoAtend" />
+                    <h:selectOneMenu id="codigoAtend" value="#{ligacoesController.selected.codigoAtend}" title="#{bundle.CreateLigacoesTitle_codigoAtend}" >
+                        <f:selectItems value="#{atendimentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ligacoesController.create}" value="#{bundle.CreateLigacoesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ligacoesController.prepareList}" value="#{bundle.CreateLigacoesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateLigacoesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
