@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOcorrenciasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_codigoOcorrencia}" for="codigoOcorrencia" />
+                    <h:inputText id="codigoOcorrencia" value="#{ocorrenciasController.selected.codigoOcorrencia}" title="#{bundle.CreateOcorrenciasTitle_codigoOcorrencia}" required="true" requiredMessage="#{bundle.CreateOcorrenciasRequiredMessage_codigoOcorrencia}"/>
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_prioridade}" for="prioridade" />
+                    <h:inputText id="prioridade" value="#{ocorrenciasController.selected.prioridade}" title="#{bundle.CreateOcorrenciasTitle_prioridade}" />
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_situacao}" for="situacao" />
+                    <h:inputText id="situacao" value="#{ocorrenciasController.selected.situacao}" title="#{bundle.CreateOcorrenciasTitle_situacao}" />
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{ocorrenciasController.selected.tipo}" title="#{bundle.CreateOcorrenciasTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_assunto}" for="assunto" />
+                    <h:inputText id="assunto" value="#{ocorrenciasController.selected.assunto}" title="#{bundle.CreateOcorrenciasTitle_assunto}" />
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_descricao}" for="descricao" />
+                    <h:inputText id="descricao" value="#{ocorrenciasController.selected.descricao}" title="#{bundle.CreateOcorrenciasTitle_descricao}" />
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_resolucao}" for="resolucao" />
+                    <h:inputText id="resolucao" value="#{ocorrenciasController.selected.resolucao}" title="#{bundle.CreateOcorrenciasTitle_resolucao}" />
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_atribuido}" for="atribuido" />
+                    <h:inputText id="atribuido" value="#{ocorrenciasController.selected.atribuido}" title="#{bundle.CreateOcorrenciasTitle_atribuido}" />
+                    <h:outputLabel value="#{bundle.CreateOcorrenciasLabel_codigoCliente}" for="codigoCliente" />
+                    <h:selectOneMenu id="codigoCliente" value="#{ocorrenciasController.selected.codigoCliente}" title="#{bundle.CreateOcorrenciasTitle_codigoCliente}" >
+                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ocorrenciasController.create}" value="#{bundle.CreateOcorrenciasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ocorrenciasController.prepareList}" value="#{bundle.CreateOcorrenciasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateOcorrenciasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
