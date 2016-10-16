@@ -24,6 +24,7 @@
                     <!--LISTA DE CLIENTES-->
                     <div id="list" class="row">
                         <div class="table-responsive col-md-12">
+                            <!--ALTERA O TIPO DE LISTA-->
                             <h:dataTable value="#{clienteController.items}" var="item" class="table table-striped" cellspacing="0" cellpadding="0">
                                 <!--COLUNA DE ID DO CLIENTE-->
                                 <h:column>
@@ -35,17 +36,29 @@
                                 <!--COLUNA DE CNPJ / CPF-->
                                 <h:column>
                                     <f:facet name="header">
-                                        <h:outputText value="CNPJ/CPF"/>
+                                        <h:outputText value="CNPJ / CPF"/>
                                     </f:facet>
                                     <h:outputText value="#{item.cpfCnpj}"/>
                                 </h:column>
                                 <!--COLUNA DE ID DO CLIENTE-->
                                 <h:column>
                                     <f:facet name="header">
-                                        <h:outputText value="RAZÃO SOCIAL/NOME"/>
+                                        <h:outputText value="RAZÃO SOCIAL / NOME"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nomeRazaoSocial}"/>
-                                </h:column>
+                                </h:column>                              
+                                
+                                <!--COLUNA DE ENDEREÇO-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="End Rua"/>
+                                    </f:facet>
+                                    <h:outputText value="#{endCliente.item.rua}"/>
+                                </h:column>                             
+
+
+                                <h:outputText value="#{bundle.ListEndClienteTitle_rua}"/>
+
                                 <!--BOTÕES DE ACÕES NA LISTA - VISUALIZAR/EDITAR/EXCLUIR-->
                                 <h:column>
                                     <f:facet name="header">
@@ -68,7 +81,7 @@
                     </div>
                 </h:panelGroup>
                 <br />
-                <h:commandLink class="btn btn-primary" action="#{clienteController.prepareCreate}" value="Adicionar Cliente"/>
+                <h:commandLink class="btn btn-primary" action="#{clienteController.prepareCreate}" value="NOVO CLIENTE"/>
                 <br />
                 <br />
             </h:form>
