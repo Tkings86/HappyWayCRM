@@ -7,68 +7,90 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListAtendimentoTitle}"></h:outputText>
+            <h:outputText value="Casos"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+
+            <h:form styleClass="jsfcrud_list_row">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListAtendimentoEmpty}" rendered="#{atendimentoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{atendimentoController.items.rowCount > 0}">
-                    <h:outputText value="#{atendimentoController.pagination.pageFirstItem + 1}..#{atendimentoController.pagination.pageLastItem + 1}/#{atendimentoController.pagination.itemsCount}"/>&nbsp;
+
                     <h:commandLink action="#{atendimentoController.previous}" value="#{bundle.Previous} #{atendimentoController.pagination.pageSize}" rendered="#{atendimentoController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{atendimentoController.next}" value="#{bundle.Next} #{atendimentoController.pagination.pageSize}" rendered="#{atendimentoController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{atendimentoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtendimentoTitle_codigoAtend}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.codigoAtend}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtendimentoTitle_descrição}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descrição}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtendimentoTitle_dataCriacaoHora}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dataCriacaoHora}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtendimentoTitle_status}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.status}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtendimentoTitle_codigoCliente}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.codigoCliente}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{atendimentoController.prepareView}" value="#{bundle.ListAtendimentoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{atendimentoController.prepareEdit}" value="#{bundle.ListAtendimentoEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{atendimentoController.destroy}" value="#{bundle.ListAtendimentoDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+
+                    <!--LISTA DE CAMPANHAS-->
+                    <div id="list" class="row">
+                        <div class="table-responsive col-md-12">
+                            <!--ALTERA O TIPO DE LISTA-->                    
+                            <h:dataTable value="#{atendimentoController.items}" var="item" class="table table-striped" cellspacing="0" cellpadding="0">
+                                <!--COLUNA CODIGO CASO-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="ID"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.codigoAtend}"/>
+                                </h:column>
+                                <!--COLUNA DESCRIÇÃO-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="DESCRIÇÃO"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.descrição}"/>
+                                </h:column>
+                                <!--COLUNA DATA DE CRIAÇÃO--> 
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="DATA CRIAÇÃO"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dataCriacaoHora}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                    </h:outputText>
+                                </h:column>
+                                <!--COLUNA STATUS-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="STATUS"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.status}"/>
+                                </h:column>
+                                <!--COLUNA CODIGO DO CLIENTE-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="ID DO CLIENTE"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.codigoCliente}"/>
+                                </h:column>
+
+
+                                <!--BOTÕES DE ACÕES NA LISTA - VISUALIZAR/EDITAR/EXCLUIR-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="&nbsp;"/>
+                                    </f:facet>
+                                    <h:commandLink class="btn btn-success btn-xs" action="#{atendimentoController.prepareView}">     
+                                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                    </h:commandLink> 
+                                    <h:outputText value=" "/>                             
+                                    <h:commandLink class="btn btn-warning btn-xs" action="#{atendimentoController.prepareEdit}">   
+                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                    </h:commandLink>
+                                    <h:outputText value=" "/>
+                                    <h:commandLink class="btn btn-danger btn-xs" action="#{atendimentoController.destroy}">
+                                        <span class="glyphicon glyphicon-trash"></span> Excluir
+                                    </h:commandLink>
+                                </h:column>
+
+                            </h:dataTable>
+                        </div>
+                    </div>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{atendimentoController.prepareCreate}" value="#{bundle.ListAtendimentoCreateLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{atendimentoController.prepareCreate}" value="NOVO CASO"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListAtendimentoIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
