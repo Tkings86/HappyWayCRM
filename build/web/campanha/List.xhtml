@@ -7,110 +7,139 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListCampanhaTitle}"></h:outputText>
+            <h:outputText value="Campanhas"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+
+            <h:form styleClass="jsfcrud_list_row">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListCampanhaEmpty}" rendered="#{campanhaController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{campanhaController.items.rowCount > 0}">
-                    <h:outputText value="#{campanhaController.pagination.pageFirstItem + 1}..#{campanhaController.pagination.pageLastItem + 1}/#{campanhaController.pagination.itemsCount}"/>&nbsp;
+
                     <h:commandLink action="#{campanhaController.previous}" value="#{bundle.Previous} #{campanhaController.pagination.pageSize}" rendered="#{campanhaController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{campanhaController.next}" value="#{bundle.Next} #{campanhaController.pagination.pageSize}" rendered="#{campanhaController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{campanhaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_codigoCampanha}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.codigoCampanha}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_nomeCampanha}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomeCampanha}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_status}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.status}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_tipo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tipo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_frequencia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.frequencia}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_dataInicial}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dataInicial}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_dataFinal}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dataFinal}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_custoEsperado}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.custoEsperado}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_receitaEsperada}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.receitaEsperada}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_vinculado}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.vinculado}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_descricao}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descricao}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCampanhaTitle_objetivo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.objetivo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{campanhaController.prepareView}" value="#{bundle.ListCampanhaViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{campanhaController.prepareEdit}" value="#{bundle.ListCampanhaEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{campanhaController.destroy}" value="#{bundle.ListCampanhaDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+
+                    <!--LISTA DE CAMPANHAS-->
+                    <div id="list" class="row">
+                        <div class="table-responsive col-md-12">
+                            <!--ALTERA O TIPO DE LISTA-->
+                            <h:dataTable value="#{campanhaController.items}" var="item" class="table table-striped" cellspacing="0" cellpadding="0">
+                                <!--COLUNA CODIGO DA CAMPANHA-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="ID"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.codigoCampanha}"/>
+                                </h:column>
+                                <!--COLUNA NOME DA CAMPANHA-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="NOME"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nomeCampanha}"/>
+                                </h:column>
+                                <!--COLUNA STATUS DA CAMPANHA-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="STATUS"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.status}"/>
+                                </h:column>
+                                <!--COLUNA TIPO DA CAMPANHA-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="TIPO"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.tipo}"/>
+                                </h:column>
+                                <!--COLUNA FREQUENCIA CAMPANHA-->
+<!--                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="FREQUENCIA"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.frequencia}"/>
+                                </h:column>-->
+                                <!--COLUNA DATA INICIAL-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="DATA INICIAL"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dataInicial}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:outputText>
+                                </h:column>
+                                <!--COLUNA DATA FINAL DA CAMPANHA-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="DATA FINAL"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dataFinal}"/>
+<!--                                    <f:convertDateTime pattern="dd/MM/yyyy"/>-->
+                                </h:column>
+                                <!--COLUNA CUSTO ESPERADO-->
+<!--                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="CUSTO ESPERADO"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.custoEsperado}"/>
+                                </h:column>-->
+                                <!--COLUNA RECEITA ESPERADA-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="RECEITA ESPERADA"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.receitaEsperada}"/>
+                                </h:column>
+                                <!--COLUN VINCULADO A--> 
+<!--                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="VINCULADO A"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.vinculado}"/>
+                                </h:column>-->
+                                <!--COLUNA DESCRIÇÃO-->
+<!--                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListCampanhaTitle_descricao}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.descricao}"/>
+                                </h:column>-->
+                                <!--COLUNA OBJETIVO-->
+<!--                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListCampanhaTitle_objetivo}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.objetivo}"/>
+                                </h:column>-->
+                                <!--BOTÕES DE ACÕES NA LISTA - VISUALIZAR/EDITAR/EXCLUIR-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="&nbsp;"/>
+                                    </f:facet>
+                                    <h:commandLink class="btn btn-success btn-xs" action="#{campanhaController.prepareView}">   
+                                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                    </h:commandLink> 
+                                    <h:outputText value=" "/>                                    
+                                    <h:commandLink class="btn btn-warning btn-xs" action="#{campanhaController.prepareEdit}">    
+                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                    </h:commandLink>
+                                    <h:outputText value=" "/>
+                                    
+                                    <h:commandLink class="btn btn-danger btn-xs" action="#{campanhaController.destroy}">
+                                        <span class="glyphicon glyphicon-trash"></span> Excluir
+                                    </h:commandLink>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </div>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{campanhaController.prepareCreate}" value="#{bundle.ListCampanhaCreateLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{campanhaController.prepareCreate}" value="NOVA CAMPANHA"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListCampanhaIndexLink}"/>
+
             </h:form>
         </ui:define>
     </ui:composition>
