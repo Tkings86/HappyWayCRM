@@ -4,42 +4,70 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.CreateAtendimentoTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateAtendimentoLabel_codigoAtend}" for="codigoAtend" />
-                    <h:inputText id="codigoAtend" value="#{atendimentoController.selected.codigoAtend}" title="#{bundle.CreateAtendimentoTitle_codigoAtend}" required="true" requiredMessage="#{bundle.CreateAtendimentoRequiredMessage_codigoAtend}"/>
-                    <h:outputLabel value="#{bundle.CreateAtendimentoLabel_descrição}" for="descrição" />
-                    <h:inputText id="descrição" value="#{atendimentoController.selected.descrição}" title="#{bundle.CreateAtendimentoTitle_descrição}" />
-                    <h:outputLabel value="#{bundle.CreateAtendimentoLabel_dataCriacaoHora}" for="dataCriacaoHora" />
-                    <h:inputText id="dataCriacaoHora" value="#{atendimentoController.selected.dataCriacaoHora}" title="#{bundle.CreateAtendimentoTitle_dataCriacaoHora}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateAtendimentoLabel_status}" for="status" />
-                    <h:inputText id="status" value="#{atendimentoController.selected.status}" title="#{bundle.CreateAtendimentoTitle_status}" />
-                    <h:outputLabel value="#{bundle.CreateAtendimentoLabel_codigoCliente}" for="codigoCliente" />
-                    <h:selectOneMenu id="codigoCliente" value="#{atendimentoController.selected.codigoCliente}" title="#{bundle.CreateAtendimentoTitle_codigoCliente}" >
-                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{atendimentoController.create}" value="#{bundle.CreateAtendimentoSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{atendimentoController.prepareList}" value="#{bundle.CreateAtendimentoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateAtendimentoIndexLink}"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+    <div class="container">
+        <ui:composition template="/template.xhtml">
+            <div id="main" class="container-fluid">
+                <div class="row">            
+                    <ui:define name="title">
+                        <h:outputText class="page-header" value="Adicionar Casos"></h:outputText>
+                    </ui:define>
+                    <ui:define name="body">
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+                            <h:panelGroup>
+                                <!--ID DO ATENDIMENTO-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="ID" for="codigoAtend" />
+                                        <h:inputText id="codigoAtend" class="form-control" value="#{atendimentoController.selected.codigoAtend}" title="#{bundle.CreateAtendimentoTitle_codigoAtend}" required="true" requiredMessage="#{bundle.CreateAtendimentoRequiredMessage_codigoAtend}"/>
+                                    </div>
+                                </div>
+                                <!--DESCRIÇÃO DO ATENDIMENTO-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-5">
+                                        <h:outputLabel value="DESCRIÇÃO" for="descrição" />
+                                        <h:inputText id="descrição" class="form-control" value="#{atendimentoController.selected.descrição}" title="#{bundle.CreateAtendimentoTitle_descrição}"/>                                        
+                                    </div>
+                                </div>
+                                <!--DATA E HORA DO ATENDIMENTO-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="DATA/HORA" for="dataCriacaoHora" />
+                                        <h:inputText id="dataCriacaoHora" class="form-control" value="#{atendimentoController.selected.dataCriacaoHora}" title="#{bundle.CreateAtendimentoTitle_dataCriacaoHora}">
+                                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+                                        </h:inputText>                                        
+                                    </div>
+                                    <!--STATUS DO ATENDIMENTO-->
+                                    <div class="form-group col-md-2">
+                                        <h:outputLabel value="STATUS" for="status" />
+                                        <h:inputText id="status" class="form-control" value="#{atendimentoController.selected.status}" title="#{bundle.CreateAtendimentoTitle_status}" />                                        
+                                    </div>
+                                </div>
+                                <!--CODIGO DO CLIENTE-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-5">
+                                        <h:outputLabel value="CLIENTE" for="codigoCliente" />
+                                        <h:selectOneMenu id="codigoCliente" class="form-control" value="#{atendimentoController.selected.codigoCliente}" title="#{bundle.CreateAtendimentoTitle_codigoCliente}" >
+                                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
+                                        </h:selectOneMenu>                                         
+                                    </div>
+                                </div>
+                            </h:panelGroup>
+                            <br />
+                            <h:commandLink class="btn btn-primary" action="#{atendimentoController.create}" value="SALVAR" />
+                            <h:outputText value="   "/>
+                            <h:commandLink class="btn btn-default" action="#{atendimentoController.prepareList}" value="VOLTAR" immediate="true"/>
+                            <br />
+                            <br />
+                            
+                            <br />
+                            <br />
+                        </h:form>
+                    </ui:define>
+                </div>
+            </div>
+        </ui:composition>
+    </div>
 </html>
