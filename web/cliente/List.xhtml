@@ -5,127 +5,75 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Clientes"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
 
-    <h:head>
-        <title>CRM - HAPPY WAY</title>
-        <meta charset="utf-8"></meta>
-        <link href="../resources/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/bootstrap.css" rel="stylesheet"></link>
-        <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/metisMenu.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/sb-admin-2.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/morris.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="icon" href="../resources/img/icon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="../resources/img/icon.ico" type="image/x-icon" />
-        <!-- Chamadas JS -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>        
-        <h:outputStylesheet name="css/jsfcrud.css"/>
-    </h:head>
+            <h:form styleClass="jsfcrud_even_row">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListClienteEmpty}" rendered="#{clienteController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{clienteController.items.rowCount > 0}">
+                    <!--<h:outputText value="#{clienteController.pagination.pageFirstItem + 1}..#{clienteController.pagination.pageLastItem + 1}/#{clienteController.pagination.itemsCount}"/>&nbsp;-->
+                    <h:commandLink class="next" action="#{clienteController.previous}" value="#{bundle.Previous} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{clienteController.next}" value="#{bundle.Next} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasNextPage}"/>&nbsp;
 
-    <h:body>
-
-        <nav role="navigation" class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">                    
-                    <span class="sr-only">Navegação Responsiva</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                
-                </button>   
-                <img class="img" id="img_logo" src="../resources/img/haapywayLogoPrincipal.jpg"></img>
-                <a href="#" class="navbar-right navbar-brand">CRM - HAPPY WAY</a>  
-
-            </div>
-            <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-top-links navbar-right navbar-nav">
-                    <li class=""><h:link outcome="/index" value="Dashboard"/></li>
-                    <li><h:link outcome="/cliente/List" value="Clientes"/></li>
-                    <li><h:link outcome="/venda/List" value="Vendas"/></li>
-                    <li><h:link outcome="/campanha/List" value="Campanhas"/></li>
-                    <li><h:link outcome="/atendimento/List" value="S.A.C"/></li>
-                    <li><a href="login.html" class="btn btn-primary ">
-                            <span class="glyphicon glyphicon-share"></span> Sair
-                        </a></li>
-
-                </ul>
-            </div>
-        </nav>
-
-
-        <ui:composition template="/template.xhtml">
-            <ui:define name="title">
-                <h:outputText value="Clientes"></h:outputText>
-
-            </ui:define>
-
-
-            <ui:define name="body">
-                <h:form styleClass="jsfcrud_even_row">
-                    <h:panelGroup id="messagePanel" layout="block">
-                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                    </h:panelGroup>
-                    <h:outputText escape="false" value="#{bundle.ListClienteEmpty}" rendered="#{clienteController.items.rowCount == 0}"/>
-                    <h:panelGroup rendered="#{clienteController.items.rowCount > 0}">
-                        <!--<h:outputText value="#{clienteController.pagination.pageFirstItem + 1}..#{clienteController.pagination.pageLastItem + 1}/#{clienteController.pagination.itemsCount}"/>&nbsp;-->
-                        <h:commandLink class="next" action="#{clienteController.previous}" value="#{bundle.Previous} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasPreviousPage}"/>&nbsp;
-                        <h:commandLink action="#{clienteController.next}" value="#{bundle.Next} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasNextPage}"/>&nbsp;
-                        <!--LISTA DE CLIENTES-->
-
-                        <div id="list" class="row">
-                            <div class="table-responsive col-md-12">
-                                <h:dataTable value="#{clienteController.items}" var="item" class="table table-striped" cellspacing="0" cellpadding="0">
-                                    <!--COLUNA DE ID DO CLIENTE-->
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="ID"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.codigoCliente}"/>
-                                    </h:column>
-                                    <!--COLUNA DE CNPJ / CPF-->
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="CNPJ/CPF"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.cpfCnpj}"/>
-                                    </h:column>
-                                    <!--COLUNA DE ID DO CLIENTE-->
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="RAZÃO SOCIAL/NOME"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.nomeRazaoSocial}"/>
-                                    </h:column>
-
-
-
-                                    <!--BOTÕES DE ACÕES - VIEW/EDIT/DESTROY-->
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="&nbsp;"/>
-                                        </f:facet>
-                                        <h:commandLink class="btn btn-success btn-xs" action="#{clienteController.prepareView}" value="VISUALIZAR"/>
-                                        <h:outputText value=" "/>
-                                        <h:commandLink class="btn btn-warning btn-xs" action="#{clienteController.prepareEdit}" value="Editar"/>
-                                        <h:outputText value=" "/>
-                                        <h:commandLink class="btn btn-danger btn-xs" action="#{clienteController.destroy}" value="Excluir"/>
-                                    </h:column>
-
-                                </h:dataTable>
-                            </div>
+                    <!--LISTA DE CLIENTES-->
+                    <div id="list" class="row">
+                        <div class="table-responsive col-md-12">
+                            <h:dataTable value="#{clienteController.items}" var="item" class="table table-striped" cellspacing="0" cellpadding="0">
+                                <!--COLUNA DE ID DO CLIENTE-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="ID"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.codigoCliente}"/>
+                                </h:column>
+                                <!--COLUNA DE CNPJ / CPF-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="CNPJ/CPF"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.cpfCnpj}"/>
+                                </h:column>
+                                <!--COLUNA DE ID DO CLIENTE-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="RAZÃO SOCIAL/NOME"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nomeRazaoSocial}"/>
+                                </h:column>
+                                <!--BOTÕES DE ACÕES NA LISTA - VISUALIZAR/EDITAR/EXCLUIR-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="&nbsp;"/>
+                                    </f:facet>
+                                    <h:commandLink class="btn btn-success btn-xs" action="#{clienteController.prepareView}">
+                                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                    </h:commandLink>                               
+                                    <h:outputText value=" "/>                                    
+                                    <h:commandLink class="btn btn-warning btn-xs" action="#{clienteController.prepareEdit}">
+                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                    </h:commandLink>
+                                    <h:outputText value=" "/>
+                                    <h:commandLink class="btn btn-danger btn-xs" action="#{clienteController.destroy}">
+                                        <span class="glyphicon glyphicon-trash"></span> Excluir
+                                    </h:commandLink>
+                                </h:column>
+                            </h:dataTable>
                         </div>
-
-                    </h:panelGroup>
-                    <br />
-                    <h:commandLink class="btn btn-success btn-xs" action="#{clienteController.prepareCreate}" value="Adicionar Cliente"/>
-                    <br />
-                    <br />
-                </h:form>
-            </ui:define>
-        </ui:composition>
-
-    </h:body>
+                    </div>
+                </h:panelGroup>
+                <br />
+                <h:commandLink class="btn btn-primary" action="#{clienteController.prepareCreate}" value="Adicionar Cliente"/>
+                <br />
+                <br />
+            </h:form>
+        </ui:define>
+    </ui:composition>
 
 </html>
 

@@ -4,7 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-   <h:head>
+    <h:head>
         <title>CRM - HAPPY WAY</title>
         <meta charset="utf-8"></meta>
         <link href="../resources/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
@@ -18,12 +18,18 @@
         <link rel="shortcut icon" href="../resources/img/icon.ico" type="image/x-icon" />
         <!-- Chamadas JS -->
         <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>        
+        <script src="js/bootstrap.min.js"></script>  
+        <script src="Chart.min.js"></script>
+        <script type="text/javascript">
+            var randomnb = function () {
+                return Math.round(Math.random() * 300)
+            };
+        </script>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
 
     <h:body>
-        
+ 
         <nav role="navigation" class="navbar navbar-default">
             <div class="navbar-header">
                 <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">                    
@@ -50,14 +56,27 @@
                 </ul>
             </div>
         </nav>
-        
-        
+<div class="container">
+
         <h1>
             <ui:insert name="title">Default Title</ui:insert>
         </h1>
         <p>
             <ui:insert name="body">Default Body</ui:insert>
         </p>
+
+        <section>
+            <div id="wrap" align="center">
+                <p></p>
+                <img src="../resources/img/logotipoEbics.png" alt=""/>
+                <p></p>
+                <p>Ebic’s - Enterprise Business at Integrated Communications Systems LTDA.</p>
+                <p>Av. Paulista, nº 3500, Bairro Consolação, Edifício Paulista 3º Andar, São Paulo - SP.</p>
+                <p>(11) 3494-9434</p> 
+                <p>ebicsystems.comunidades.net</p>
+            </div>
+        </section>
+     </div>
     </h:body>
 
 </html>

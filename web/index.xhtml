@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-   
+
     <h:head>
         <title>CRM - HAPPY WAY</title>
         <meta charset="utf-8"></meta>
@@ -16,7 +16,14 @@
         <link rel="shortcut icon" href="resources/img/icon.ico" type="image/x-icon" />
         <!-- Chamadas JS -->
         <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/bootstrap.min.js"></script>        
+        <script src="resources/js/bootstrap.min.js"></script> 
+        <script src="resources/js/Chart.min.js"></script>
+
+        <script type="text/javascript">
+            var randomnb = function () {
+                return Math.round(Math.random() * 300)
+            };
+        </script>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
@@ -35,12 +42,11 @@
             </div>
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-top-links navbar-right navbar-nav">
-                    <li class="active"><h:link outcome="index.xhtml" value="Dashboard"/></li>
-
+                    <li class=""><h:link outcome="/index" value="Dashboard"/></li>
                     <li><h:link outcome="/cliente/List" value="Clientes"/></li>
-                    <li><a href="Vendas.html">Vendas</a></li>
-                    <li><a href="Campanhas.html">Campanhas</a></li>
-                    <li><a href="SAC.html">S.A.C</a></li>
+                    <li><h:link outcome="/venda/List" value="Vendas"/></li>
+                    <li><h:link outcome="/campanha/List" value="Campanhas"/></li>
+                    <li><h:link outcome="/atendimento/List" value="S.A.C"/></li>
                     <li><a href="login.html" class="btn btn-primary ">
                             <span class="glyphicon glyphicon-share"></span> Sair
                         </a></li>
@@ -146,94 +152,97 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-6"> <!--TAMANHO DA JANELA DOS GRAFICOS-->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Grafico de Area
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Grafico de Vendas 
                         <div class="pull-right">
                             <div class="btn-group"> 
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Ações
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#">Ações</a>
-                                    </li>
-                                    <li><a href="#">Outras Ações</a>
-                                    </li>
-                                    <li><a href="#">Algo mais aqui</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Ligação Separada</a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
-                    <!-- /.panel-heading -->
+                    <!-- GRAFICO DE VENDAS -->
                     <div class="panel-body">
                         <div id="morris-area-chart"></div>
+                        <!--**********************************************************************************************************************-->
+                        <div class="box-chart">
+
+                            <canvas id="GraficoPizza" style="width:100%;"></canvas>
+
+                            <script type="text/javascript">
+
+                                var options = {
+                                    responsive: true
+                                };
+
+                                var data = [
+                                    {
+                                        value: randomnb(),
+                                        color: "#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Loja Centro SP"
+                                    },
+                                    {
+                                        value: randomnb(),
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Loja Ipiranga"
+                                    },
+                                    {
+                                        value: randomnb(),
+                                        color: "#FDB45C",
+                                        highlight: "#FFC870",
+                                        label: "Loja Bras"
+                                    },
+                                    {
+                                        value: randomnb(),
+                                        color: "black",
+                                        highlight: "black",
+                                        label: "Loja Santo André"
+                                    },
+                                    {
+                                        value: randomnb(),
+                                        color: "blue",
+                                        highlight: "blue",
+                                        label: "E-commerce"
+                                    }
+                                ]
+                                window.onload = function () {
+
+                                    var ctx = document.getElementById("GraficoPizza").getContext("2d");
+                                    var PizzaChart = new Chart(ctx).Pie(data, options);
+                                }
+                            </script>           
+                        </div>
+                        <!--**********************************************************************************************************************-->
                     </div>
-                    <!-- /.panel-body -->
                 </div>
-                <!-- /.panel -->
+
+
+
+
+                <!--Exemplo de Gráfico de Barras -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Exemplo de Gráfico de Barras
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Ações
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#">Ações</a>
-                                    </li>
-                                    <li><a href="#">Anotações de Ações</a>
-                                    </li>
-                                    <li><a href="#">Something else here</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico de Campanhas
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="table-responsive">
 
-                                    <!--*********************************************** TABELA DO GRAFICO DE BARRAS **************************************************************************************-->
-                                    <table class="table table-condensed table-condensed table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Código</th>
-                                                <th>Data</th>
-                                                <th>Hora</th>
-                                                <th>Quantidade</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <!-- /.col-lg-4 (nested) -->
-                            <div class="col-lg-8">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                            <!-- /.col-lg-8 (nested) -->
+                        <div class="col-lg-6">
+                            <!--**********************************************************************************************************************-->                        
+
+                            
+
+                            <!--**********************************************************************************************************************-->                        
+                            <!-- /.table-responsive -->
                         </div>
+                        <!-- /.col-lg-4 (nested) -->
+                        <div class="col-lg-8">
+                            <div id="morris-bar-chart"></div>
+                        </div>
+                        <!-- /.col-lg-8 (nested) -->
+
                         <!-- /.row -->
                     </div>
                     <!-- /.panel-body -->
@@ -241,7 +250,7 @@
                 <!-- ************************************************ PAINEL DE NOTIFICAÇÕES **************************************************** -->
             </div>
             <!-- /.col-lg-8 -->
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-bell fa-fw"></i> Painel de Notificações
@@ -303,7 +312,7 @@
                 <!-- /.panel -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Exemplo de Grafico
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico de Desempenho S.A.C
                     </div>
                     <div class="panel-body">
                         <div id="morris-donut-chart"></div>
@@ -313,7 +322,7 @@
                 </div>
             </div>
         </div>
-        
+
         Hello from Facelets
         <br />
         <h:link outcome="/atendimento/List" value="Show All Atendimento Items"/>

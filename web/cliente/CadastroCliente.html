@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>CRM - HAPPY WAY</title>
+        <meta charset="utf-8">
+        <link href="resources/css/bootstrap.css" rel="stylesheet">
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/metisMenu.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/sb-admin-2.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/morris.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link rel="icon" href="resources/img/icon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="resources/img/icon.ico" type="image/x-icon" />
+        <!-- Chamadas JS -->
+        <script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>        
+    </h:head>
+
+    <h:body>
+        <nav role="navigation" class="navbar navbar-default">
+            <div class="navbar-header">
+                <h:button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">                    
+                    <h:span class="sr-only">Navegação Responsiva</span>
+                    <h:span class="icon-bar"></h:span>
+                    <h:span class="icon-bar"></h:span>
+                    <h:span class="icon-bar"></h:span>             
+                </h:button>   
+                <img class="img" id="img_logo" src="img/haapywayLogoPrincipal.jpg">
+                <a href="#" class="navbar-right navbar-brand">CRM - HAPPY WAY</a>  
+            </div>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-top-links navbar-right navbar-nav">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li class="active"><a href="CadastroCliente.html">Cadastro Clientes</a></li>
+                    <li><a href="Vendas.html">Vendas</a></li>
+                    <li><a href="Campanhas.html">Campanhas</a></li>
+                    <li><a href="SAC.html">S.A.C</a></li>
+                    <li><a href="login.html" class="btn btn-primary ">
+                            <h:span class="glyphicon glyphicon-share"></h:span> Sair
+                        </a></li>
+
+                </ul>
+            </div>  
+        </nav>
+
+        <!--PADRÃO DE TEMPALTE-->
+        <div id="main" class="container-fluid" style="margin-top: 50px">
+            <div id="top" class="row">
+                <div class="col-sm-3">
+                    <h2>Clientes</h2>
+                </div>
+                <div class="col-sm-6">
+
+                    <div class="input-group h2">
+                        <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-3">
+                    <a href="addClientes.html" class="btn btn-primary pull-right h2">Novo Item</a>
+                </div>
+            </div> <!-- /#top -->
+
+
+            <hr />
+            <div id="list" class="row">
+
+                <div class="table-responsive col-md-12">
+                    <table class="table table-striped" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th>CNPJ/CPF</th>
+                                <th>Razão Social</th>
+                                <th>Endereço</th>
+                                <th>Cidade</th>
+                                <th>UF</th>
+                                <th class="actions">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>02.590.839/0001-45</td>
+                                <td>RI Happy Brinquedos Ltda</td>
+                                <td>Rua Anchieta, nº 12342</td>
+                                <td class="center">São Paulo</td>
+                                <td class="center">SP</td>
+                                <td class="actions">
+                                    <a class="btn btn-success btn-xs" href="viewClientes.html">Visualizar</a>
+                                    <a class="btn btn-warning btn-xs" href="editClientes.html">Editar</a>
+                                    <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>02.590.839/0001-45</td>
+                                <td>RI Happy Brinquedos Ltda</td>
+                                <td>Rua Anchieta, nº 12342</td>
+                                <td class="center">São Paulo</td>
+                                <td class="center">SP</td>
+                                <td class="actions">
+                                    <a class="btn btn-success btn-xs" href="viewClientes.html">Visualizar</a>
+                                    <a class="btn btn-warning btn-xs" href="editClientes.html">Editar</a>
+                                    <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div> <!-- /#list -->
+
+            <div id="bottom" class="row">
+                <div class="col-md-12">
+                    <ul class="pagination">
+                        <li class="disabled"><a>&lt; Anterior</a></li>
+                        <li class="disabled"><a>1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+                    </ul><!-- /.pagination -->
+                </div>
+            </div> <!-- /#bottom -->
+        </div> <!-- /#main -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+                    </div>
+                    <div class="modal-body">
+                        Deseja realmente excluir este item?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Sim</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <div id="wrap" align="center">
+                <p></p>
+                <img src="img/logotipoEbics.png" alt=""/>
+                <p></p>
+                <p>Ebic’s - Enterprise Business at Integrated Communications Systems LTDA.</p>
+                <p>Av. Paulista, nº 3500, Bairro Consolação, Edifício Paulista 3º Andar, São Paulo - SP.</p>
+                <p>(11) 3494-9434</p> 
+                <p>ebicsystems.comunidades.net</p>
+            </div>
+        </section>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+        <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+        <script>
+            $(function () {
+                $('.dropdown-toggle').dropdown();
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+</body>
+</html>
