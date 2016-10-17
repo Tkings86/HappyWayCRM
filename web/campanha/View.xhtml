@@ -15,31 +15,31 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_codigoCampanha}"/>
+                    <h:outputText value="Id:"/>
                     <h:outputText value="#{campanhaController.selected.codigoCampanha}" title="#{bundle.ViewCampanhaTitle_codigoCampanha}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_nomeCampanha}"/>
+                    <h:outputText value="Nome Campanha:"/>
                     <h:outputText value="#{campanhaController.selected.nomeCampanha}" title="#{bundle.ViewCampanhaTitle_nomeCampanha}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_status}"/>
+                    <h:outputText value="Status"/>
                     <h:outputText value="#{campanhaController.selected.status}" title="#{bundle.ViewCampanhaTitle_status}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_tipo}"/>
+                    <h:outputText value="Tipo"/>
                     <h:outputText value="#{campanhaController.selected.tipo}" title="#{bundle.ViewCampanhaTitle_tipo}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_frequencia}"/>
+                    <h:outputText value="Frenquncia:"/>
                     <h:outputText value="#{campanhaController.selected.frequencia}" title="#{bundle.ViewCampanhaTitle_frequencia}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_dataInicial}"/>
+                    <h:outputText value="Data Inicial:"/>
                     <h:outputText value="#{campanhaController.selected.dataInicial}" title="#{bundle.ViewCampanhaTitle_dataInicial}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_dataFinal}"/>
+                    <h:outputText value="Data Final:"/>
                     <h:outputText value="#{campanhaController.selected.dataFinal}" title="#{bundle.ViewCampanhaTitle_dataFinal}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_custoEsperado}"/>
+                    <h:outputText value="Custo Esperado:"/>
                     <h:outputText value="#{campanhaController.selected.custoEsperado}" title="#{bundle.ViewCampanhaTitle_custoEsperado}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_receitaEsperada}"/>
+                    <h:outputText value="Receita Esperada:"/>
                     <h:outputText value="#{campanhaController.selected.receitaEsperada}" title="#{bundle.ViewCampanhaTitle_receitaEsperada}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_vinculado}"/>
+                    <h:outputText value="Vinculado à:"/>
                     <h:outputText value="#{campanhaController.selected.vinculado}" title="#{bundle.ViewCampanhaTitle_vinculado}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_descricao}"/>
+                    <h:outputText value="Descrição:"/>
                     <h:outputText value="#{campanhaController.selected.descricao}" title="#{bundle.ViewCampanhaTitle_descricao}"/>
-                    <h:outputText value="#{bundle.ViewCampanhaLabel_objetivo}"/>
+                    <h:outputText value="Objetivo:"/>
                     <h:outputText value="#{campanhaController.selected.objetivo}" title="#{bundle.ViewCampanhaTitle_objetivo}"/>
                 </h:panelGrid>
                 <br />

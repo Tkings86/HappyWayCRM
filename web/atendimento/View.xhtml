@@ -15,17 +15,17 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewAtendimentoLabel_codigoAtend}"/>
+                    <h:outputText value="Id:"/>
                     <h:outputText value="#{atendimentoController.selected.codigoAtend}" title="#{bundle.ViewAtendimentoTitle_codigoAtend}"/>
-                    <h:outputText value="#{bundle.ViewAtendimentoLabel_descrição}"/>
+                    <h:outputText value="Descrição:"/>
                     <h:outputText value="#{atendimentoController.selected.descrição}" title="#{bundle.ViewAtendimentoTitle_descrição}"/>
-                    <h:outputText value="#{bundle.ViewAtendimentoLabel_dataCriacaoHora}"/>
+                    <h:outputText value="Data de Criação:"/>
                     <h:outputText value="#{atendimentoController.selected.dataCriacaoHora}" title="#{bundle.ViewAtendimentoTitle_dataCriacaoHora}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewAtendimentoLabel_status}"/>
+                    <h:outputText value="Status:"/>
                     <h:outputText value="#{atendimentoController.selected.status}" title="#{bundle.ViewAtendimentoTitle_status}"/>
-                    <h:outputText value="#{bundle.ViewAtendimentoLabel_codigoCliente}"/>
+                    <h:outputText value="Id do Cliente:"/>
                     <h:outputText value="#{atendimentoController.selected.codigoCliente}" title="#{bundle.ViewAtendimentoTitle_codigoCliente}"/>
                 </h:panelGrid>
                 <br />

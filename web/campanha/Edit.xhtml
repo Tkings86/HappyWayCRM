@@ -4,51 +4,115 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.EditCampanhaTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_codigoCampanha}" for="codigoCampanha" />
-                    <h:inputText id="codigoCampanha" value="#{campanhaController.selected.codigoCampanha}" title="#{bundle.EditCampanhaTitle_codigoCampanha}" required="true" requiredMessage="#{bundle.EditCampanhaRequiredMessage_codigoCampanha}"/>
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_nomeCampanha}" for="nomeCampanha" />
-                    <h:inputText id="nomeCampanha" value="#{campanhaController.selected.nomeCampanha}" title="#{bundle.EditCampanhaTitle_nomeCampanha}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_status}" for="status" />
-                    <h:inputText id="status" value="#{campanhaController.selected.status}" title="#{bundle.EditCampanhaTitle_status}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_tipo}" for="tipo" />
-                    <h:inputText id="tipo" value="#{campanhaController.selected.tipo}" title="#{bundle.EditCampanhaTitle_tipo}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_frequencia}" for="frequencia" />
-                    <h:inputText id="frequencia" value="#{campanhaController.selected.frequencia}" title="#{bundle.EditCampanhaTitle_frequencia}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_dataInicial}" for="dataInicial" />
-                    <h:inputText id="dataInicial" value="#{campanhaController.selected.dataInicial}" title="#{bundle.EditCampanhaTitle_dataInicial}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_dataFinal}" for="dataFinal" />
-                    <h:inputText id="dataFinal" value="#{campanhaController.selected.dataFinal}" title="#{bundle.EditCampanhaTitle_dataFinal}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_custoEsperado}" for="custoEsperado" />
-                    <h:inputText id="custoEsperado" value="#{campanhaController.selected.custoEsperado}" title="#{bundle.EditCampanhaTitle_custoEsperado}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_receitaEsperada}" for="receitaEsperada" />
-                    <h:inputText id="receitaEsperada" value="#{campanhaController.selected.receitaEsperada}" title="#{bundle.EditCampanhaTitle_receitaEsperada}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_vinculado}" for="vinculado" />
-                    <h:inputText id="vinculado" value="#{campanhaController.selected.vinculado}" title="#{bundle.EditCampanhaTitle_vinculado}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_descricao}" for="descricao" />
-                    <h:inputText id="descricao" value="#{campanhaController.selected.descricao}" title="#{bundle.EditCampanhaTitle_descricao}" />
-                    <h:outputLabel value="#{bundle.EditCampanhaLabel_objetivo}" for="objetivo" />
-                    <h:inputText id="objetivo" value="#{campanhaController.selected.objetivo}" title="#{bundle.EditCampanhaTitle_objetivo}" />
-                </h:panelGrid>
-                <h:commandLink class="btn btn-primary" action="#{campanhaController.update}" value="Salvar"/>
-                <h:outputText value="   "/>
-                <h:commandLink class="btn btn-default" action="#{campanhaController.prepareList}" value="Voltar" immediate="true"/>
-                <h:outputText value="   "/>
-                <h:link outcome="View" class="btn btn-success" value="Visualizar"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+    <div class="container">
+        <ui:composition template="/template.xhtml">
+            <div id="main" class="container-fluid">
+                <div class="row"> 
+                    <ui:define name="title">
+                        <h:outputText value="Editar Campanha"></h:outputText>
+                    </ui:define>
+                    <ui:define name="body">
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+                            <h:panelGroup>
+                                <!--ID DA CAMPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_codigoCampanha}" for="codigoCampanha" />
+                                        <h:inputText id="codigoCampanha" class="form-control" value="#{campanhaController.selected.codigoCampanha}" title="#{bundle.EditCampanhaTitle_codigoCampanha}" required="true" requiredMessage="#{bundle.EditCampanhaRequiredMessage_codigoCampanha}"/>
+                                    </div>
+                                </div>
+                                <!--NOME DA CAMPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_nomeCampanha}" for="nomeCampanha" />
+                                        <h:inputText id="nomeCampanha" class="form-control" value="#{campanhaController.selected.nomeCampanha}" title="#{bundle.EditCampanhaTitle_nomeCampanha}" />
+                                    </div>
+                                </div>
+                                <!--STATUS DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_status}" for="status" />
+                                        <h:inputText id="status" class="form-control" value="#{campanhaController.selected.status}" title="#{bundle.EditCampanhaTitle_status}" />
+                                    </div>
+                                </div>
+                                <!--TIPO DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_tipo}" for="tipo" />
+                                        <h:inputText id="tipo" class="form-control" value="#{campanhaController.selected.tipo}" title="#{bundle.EditCampanhaTitle_tipo}" />
+                                    </div>
+                                </div>
+                                <!--FREQUENCIA DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_frequencia}" for="frequencia" />
+                                        <h:inputText id="frequencia" class="form-control" value="#{campanhaController.selected.frequencia}" title="#{bundle.EditCampanhaTitle_frequencia}" />
+                                    </div>
+                                </div>
+                                <!--DATA INICIAL DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_dataInicial}" for="dataInicial" />
+                                        <h:inputText id="dataInicial" class="form-control" value="#{campanhaController.selected.dataInicial}" title="#{bundle.EditCampanhaTitle_dataInicial}" >
+                                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                <!--DATA FINAL DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_dataFinal}" for="dataFinal" />
+                                        <h:inputText id="dataFinal" class="form-control" value="#{campanhaController.selected.dataFinal}" title="#{bundle.EditCampanhaTitle_dataFinal}" />
+                                    </div>
+                                </div>
+                                <!--CUSTO ESPERADO DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_custoEsperado}" for="custoEsperado" />
+                                        <h:inputText id="custoEsperado" class="form-control" value="#{campanhaController.selected.custoEsperado}" title="#{bundle.EditCampanhaTitle_custoEsperado}" />
+                                    </div>
+                                </div>
+                                <!--RECEITA ESPERADA DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_receitaEsperada}" for="receitaEsperada" />
+                                        <h:inputText id="receitaEsperada" class="form-control" value="#{campanhaController.selected.receitaEsperada}" title="#{bundle.EditCampanhaTitle_receitaEsperada}" />
+                                    </div>
+                                </div>
+                                <!--VINCULADO A CAMPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_vinculado}" for="vinculado" />
+                                        <h:inputText id="vinculado" class="form-control" value="#{campanhaController.selected.vinculado}" title="#{bundle.EditCampanhaTitle_vinculado}" />
+                                    </div>
+                                </div>
+                                <!--DESCRIÇÃO DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_descricao}" for="descricao" />
+                                        <h:inputText id="descricao" class="form-control" value="#{campanhaController.selected.descricao}" title="#{bundle.EditCampanhaTitle_descricao}" />
+                                    </div>
+                                </div>
+                                <!--OBJETIVO DA CAMAPANHA-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="#{bundle.EditCampanhaLabel_objetivo}" for="objetivo" />
+                                        <h:inputText id="objetivo" class="form-control" value="#{campanhaController.selected.objetivo}" title="#{bundle.EditCampanhaTitle_objetivo}" />
+                                    </div>
+                                </div>
+                            </h:panelGroup>
+                            <h:commandLink class="btn btn-primary" action="#{campanhaController.update}" value="Salvar"/>
+                            <h:outputText value="   "/>
+                            <h:commandLink class="btn btn-default" action="#{campanhaController.prepareList}" value="Voltar" immediate="true"/>
+                            <h:outputText value="   "/>
+                            <h:link outcome="View" class="btn btn-success" value="Visualizar"/>
+                        </h:form>
+                    </ui:define>
+                </div>
+            </div>
+        </ui:composition>
+    </div>
 </html>

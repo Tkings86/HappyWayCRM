@@ -36,14 +36,21 @@
                                     <div class="form-group col-md-3">
                                         <h:outputLabel value="DATA/HORA" for="dataCriacaoHora" />
                                         <h:inputText id="dataCriacaoHora" class="form-control" value="#{atendimentoController.selected.dataCriacaoHora}" title="#{bundle.CreateAtendimentoTitle_dataCriacaoHora}">
-                                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>                                        
                                     </div>
                                     <!--STATUS DO ATENDIMENTO-->
+
                                     <div class="form-group col-md-2">
                                         <h:outputLabel value="STATUS" for="status" />
-                                        <h:inputText id="status" class="form-control" value="#{atendimentoController.selected.status}" title="#{bundle.CreateAtendimentoTitle_status}" />                                        
-                                    </div>
+                                        <h:selectOneMenu id="status" class="form-control" value="#{atendimentoController.selected.status}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="Aberta" itemLabel="Aberta" />
+                                            <f:selectItem itemValue="Fechada" itemLabel="Fechada" />
+                                            <f:selectItem itemValue="Analise" itemLabel="Analise" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
+                                    </div> 
                                 </div>
                                 <!--CODIGO DO CLIENTE-->
                                 <div class="row">                             
@@ -61,7 +68,7 @@
                             <h:commandLink class="btn btn-default" action="#{atendimentoController.prepareList}" value="VOLTAR" immediate="true"/>
                             <br />
                             <br />
-                            
+
                             <br />
                             <br />
                         </h:form>
