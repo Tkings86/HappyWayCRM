@@ -42,15 +42,11 @@
                     <h:outputLabel value="#{bundle.EditCampanhaLabel_objetivo}" for="objetivo" />
                     <h:inputText id="objetivo" value="#{campanhaController.selected.objetivo}" title="#{bundle.EditCampanhaTitle_objetivo}" />
                 </h:panelGrid>
-                <h:commandLink action="#{campanhaController.update}" value="#{bundle.EditCampanhaSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditCampanhaViewLink}"/>
-                <br />
-                <h:commandLink action="#{campanhaController.prepareList}" value="#{bundle.EditCampanhaShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditCampanhaIndexLink}" />
+                <h:commandLink class="btn btn-primary" action="#{campanhaController.update}" value="Salvar"/>
+                <h:outputText value="   "/>
+                <h:commandLink class="btn btn-default" action="#{campanhaController.prepareList}" value="Voltar" immediate="true"/>
+                <h:outputText value="   "/>
+                <h:link outcome="View" class="btn btn-success" value="Visualizar"/>
             </h:form>
         </ui:define>
     </ui:composition>

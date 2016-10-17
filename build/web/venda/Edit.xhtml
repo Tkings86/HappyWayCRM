@@ -30,15 +30,11 @@
                         <f:selectItems value="#{pedidosController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{vendaController.update}" value="#{bundle.EditVendaSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditVendaViewLink}"/>
-                <br />
-                <h:commandLink action="#{vendaController.prepareList}" value="#{bundle.EditVendaShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditVendaIndexLink}" />
+                <h:commandLink class="btn btn-primary" action="#{clienteController.update}" value="Salvar"/>
+                <h:outputText value="   "/>
+                <h:commandLink class="btn btn-default" action="#{vendaController.prepareList}" value="Voltar" immediate="true"/>
+                <h:outputText value="   "/>
+                <h:link outcome="View" class="btn btn-success" value="Visualizar"/>
             </h:form>
         </ui:define>
     </ui:composition>

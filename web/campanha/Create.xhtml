@@ -33,17 +33,35 @@
                                     <!--STATUS DA CAMPANHA-->
                                     <div class="form-group col-md-2">
                                         <h:outputLabel value="STATUS" for="status" />
-                                        <h:inputText id="status" class="form-control" value="#{campanhaController.selected.status}" title="#{bundle.CreateCampanhaTitle_status}" />                                                                 
-                                    </div>
+                                        <h:selectOneMenu id="status" class="form-control" value="#{campanhaController.selected.status}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="Aberta" itemLabel="Aberta" />
+                                            <f:selectItem itemValue="Fechada" itemLabel="Fechada" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
+                                    </div>                                    
                                     <!--TIPO DA CAMPANHA-->
                                     <div class="form-group col-md-2">
                                         <h:outputLabel value="TIPO" for="tipo" />
-                                        <h:inputText id="tipo" class="form-control" value="#{campanhaController.selected.tipo}" title="#{bundle.CreateCampanhaTitle_tipo}" />                                                                
+                                        <h:selectOneMenu id="tipo" class="form-control" value="#{campanhaController.selected.tipo}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="E-mail" itemLabel="E-mail" />
+                                            <f:selectItem itemValue="Site" itemLabel="Site" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
                                     </div>
                                     <!--FREQUENCIA DA CAMPANHA-->
                                     <div class="form-group col-md-2">
                                         <h:outputLabel value="FREQUENCIA" for="frequencia" />
-                                        <h:inputText id="frequencia" class="form-control" value="#{campanhaController.selected.frequencia}" title="#{bundle.CreateCampanhaTitle_frequencia}" />                                                                               
+                                        <h:selectOneMenu id="frequencia" class="form-control" value="#{campanhaController.selected.frequencia}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="Diaria" itemLabel="Diaria" />
+                                            <f:selectItem itemValue="Semanal" itemLabel="Semanal" />
+                                            <f:selectItem itemValue="Mensal" itemLabel="Mensal" />
+                                            <f:selectItem itemValue="Trimestral" itemLabel="Trimestral" />
+                                            <f:selectItem itemValue="Semestral" itemLabel="Semestral" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
                                     </div>
                                 </div>
                                 <div class="row">

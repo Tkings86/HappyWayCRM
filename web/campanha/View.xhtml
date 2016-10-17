@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewCampanhaTitle}"></h:outputText>
+            <h:outputText value="Visualizar"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -43,17 +43,15 @@
                     <h:outputText value="#{campanhaController.selected.objetivo}" title="#{bundle.ViewCampanhaTitle_objetivo}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{campanhaController.destroyAndView}" value="#{bundle.ViewCampanhaDestroyLink}"/>
+                <h:commandLink action="#{clienteController.destroyAndView}" class="btn btn-danger" value="Excluir"/>
+                <h:outputText value="   "/>
+                <h:link outcome="Edit" class="btn btn-warning" value="Editar"/>
+                <h:outputText value="   "/>
+                <h:commandLink action="#{clienteController.prepareCreate}" class="btn btn-primary" value="Nova Venda" />
+                <h:outputText value="   "/>
+                <h:commandLink action="#{clienteController.prepareList}" class="btn btn-default" value="Voltar"/>
+                <h:outputText value="   "/>
                 <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCampanhaEditLink}"/>
-                <br />
-                <h:commandLink action="#{campanhaController.prepareCreate}" value="#{bundle.ViewCampanhaCreateLink}" />
-                <br />
-                <h:commandLink action="#{campanhaController.prepareList}" value="#{bundle.ViewCampanhaShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewCampanhaIndexLink}"/>
 
             </h:form>
         </ui:define>

@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewAtendimentoTitle}"></h:outputText>
+            <h:outputText value="Visualizar"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -29,18 +29,15 @@
                     <h:outputText value="#{atendimentoController.selected.codigoCliente}" title="#{bundle.ViewAtendimentoTitle_codigoCliente}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{atendimentoController.destroyAndView}" value="#{bundle.ViewAtendimentoDestroyLink}"/>
+                <h:commandLink action="#{atendimentoController.destroyAndView}" class="btn btn-danger" value="Excluir"/>
+                <h:outputText value="   "/>
+                <h:link outcome="Edit" class="btn btn-warning" value="Editar"/>
+                <h:outputText value="   "/>
+                <h:commandLink action="#{atendimentoController.prepareCreate}" class="btn btn-primary" value="Nova Venda" />
+                <h:outputText value="   "/>
+                <h:commandLink action="#{atendimentoController.prepareList}" class="btn btn-default" value="Voltar"/>
+                <h:outputText value="   "/>
                 <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewAtendimentoEditLink}"/>
-                <br />
-                <h:commandLink action="#{atendimentoController.prepareCreate}" value="#{bundle.ViewAtendimentoCreateLink}" />
-                <br />
-                <h:commandLink action="#{atendimentoController.prepareList}" value="#{bundle.ViewAtendimentoShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewAtendimentoIndexLink}"/>
-
             </h:form>
         </ui:define>
     </ui:composition>

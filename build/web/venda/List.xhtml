@@ -26,8 +26,7 @@
                         <div class="table-responsive col-md-12">
                             <!--ALTERA O TIPO DE LISTA-->
                             <h:dataTable value="#{vendaController.items}" var="item" class="table table-striped" cellspacing="0" cellpadding="0">
- 
-                                <!--COLUNA DE CODIGO DA VENDA-->
+                                 <!--COLUNA DE CODIGO DA VENDA-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="ID"/>
@@ -37,7 +36,7 @@
                                 <!--COLUNA VALOR DA VENDA-->
                                 <h:column>
                                     <f:facet name="header">
-                                        <h:outputText value="VALOR DA VENDA"/>
+                                        <h:outputText value="VALOR"/>
                                     </f:facet>
                                     <h:outputText value="#{item.valorVenda}"/>
                                 </h:column>
@@ -70,15 +69,15 @@
                                         <h:outputText value="&nbsp;"/>
                                     </f:facet>
                                     <h:commandLink class="btn btn-success btn-xs" action="#{vendaController.prepareView}">    
-                                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                        <span class="glyphicon glyphicon-eye-open" alt="teste"></span>
                                     </h:commandLink>                               
                                     <h:outputText value=" "/>                                    
                                     <h:commandLink class="btn btn-warning btn-xs" action="#{vendaController.prepareEdit}">   
-                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                        <span class="glyphicon glyphicon-pencil"></span>
                                     </h:commandLink>
                                     <h:outputText value=" "/>
                                     <h:commandLink class="btn btn-danger btn-xs" action="#{vendaController.destroy}">    
-                                        <span class="glyphicon glyphicon-trash"></span> Excluir
+                                        <span class="glyphicon glyphicon-trash"></span>
                                     </h:commandLink>
                                 </h:column>                  
                             </h:dataTable>

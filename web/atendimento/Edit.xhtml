@@ -30,15 +30,11 @@
                         <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{atendimentoController.update}" value="#{bundle.EditAtendimentoSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditAtendimentoViewLink}"/>
-                <br />
-                <h:commandLink action="#{atendimentoController.prepareList}" value="#{bundle.EditAtendimentoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditAtendimentoIndexLink}" />
+                <h:commandLink class="btn btn-primary" action="#{atendimentoController.update}" value="Salvar"/>
+                <h:outputText value="   "/>
+                <h:commandLink class="btn btn-default" action="#{atendimentoController.prepareList}" value="Voltar" immediate="true"/>
+                <h:outputText value="   "/>
+                <h:link outcome="View" class="btn btn-success" value="Visualizar"/>
             </h:form>
         </ui:define>
     </ui:composition>

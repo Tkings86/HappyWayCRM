@@ -55,12 +55,12 @@
                                     <h:outputText value="#{item.tipo}"/>
                                 </h:column>
                                 <!--COLUNA FREQUENCIA CAMPANHA-->
-<!--                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="FREQUENCIA"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.frequencia}"/>
-                                </h:column>-->
+                                <!--                                <h:column>
+                                                                    <f:facet name="header">
+                                                                        <h:outputText value="FREQUENCIA"/>
+                                                                    </f:facet>
+                                                                    <h:outputText value="#{item.frequencia}"/>
+                                                                </h:column>-->
                                 <!--COLUNA DATA INICIAL-->
                                 <h:column>
                                     <f:facet name="header">
@@ -76,10 +76,10 @@
                                         <h:outputText value="DATA FINAL"/>
                                     </f:facet>
                                     <h:outputText value="#{item.dataFinal}"/>
-<!--                                    <f:convertDateTime pattern="dd/MM/yyyy"/>-->
+                                    <!--<f:convertDateTime pattern="dd/MM/yyyy"/>-->
                                 </h:column>
-                                <!--COLUNA CUSTO ESPERADO-->
-<!--                                <h:column>
+                                <!--COLUNA CUSTO ESPERADO
+                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="CUSTO ESPERADO"/>
                                     </f:facet>
@@ -93,42 +93,42 @@
                                     <h:outputText value="#{item.receitaEsperada}"/>
                                 </h:column>
                                 <!--COLUN VINCULADO A--> 
-<!--                                <h:column>
+                                <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="VINCULADO A"/>
                                     </f:facet>
                                     <h:outputText value="#{item.vinculado}"/>
-                                </h:column>-->
+                                </h:column>
                                 <!--COLUNA DESCRIÇÃO-->
-<!--                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListCampanhaTitle_descricao}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.descricao}"/>
-                                </h:column>-->
+                                <!--                                <h:column>
+                                                                    <f:facet name="header">
+                                                                        <h:outputText value="#{bundle.ListCampanhaTitle_descricao}"/>
+                                                                    </f:facet>
+                                                                    <h:outputText value="#{item.descricao}"/>
+                                                                </h:column>-->
                                 <!--COLUNA OBJETIVO-->
-<!--                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListCampanhaTitle_objetivo}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.objetivo}"/>
-                                </h:column>-->
+                                <!--                                <h:column>
+                                                                    <f:facet name="header">
+                                                                        <h:outputText value="#{bundle.ListCampanhaTitle_objetivo}"/>
+                                                                    </f:facet>
+                                                                    <h:outputText value="#{item.objetivo}"/>
+                                                                </h:column>-->
                                 <!--BOTÕES DE ACÕES NA LISTA - VISUALIZAR/EDITAR/EXCLUIR-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="&nbsp;"/>
                                     </f:facet>
                                     <h:commandLink class="btn btn-success btn-xs" action="#{campanhaController.prepareView}">   
-                                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                        <span class="glyphicon glyphicon-eye-open"></span>
                                     </h:commandLink> 
                                     <h:outputText value=" "/>                                    
                                     <h:commandLink class="btn btn-warning btn-xs" action="#{campanhaController.prepareEdit}">    
-                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                        <span class="glyphicon glyphicon-pencil"></span>
                                     </h:commandLink>
                                     <h:outputText value=" "/>
-                                    
+
                                     <h:commandLink class="btn btn-danger btn-xs" action="#{campanhaController.destroy}">
-                                        <span class="glyphicon glyphicon-trash"></span> Excluir
+                                        <span class="glyphicon glyphicon-trash"></span>
                                     </h:commandLink>
                                 </h:column>
                             </h:dataTable>

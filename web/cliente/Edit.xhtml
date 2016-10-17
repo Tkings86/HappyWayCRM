@@ -4,35 +4,48 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.EditClienteTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditClienteLabel_codigoCliente}" for="codigoCliente" />
-                    <h:inputText id="codigoCliente" value="#{clienteController.selected.codigoCliente}" title="#{bundle.EditClienteTitle_codigoCliente}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoCliente}"/>
-                    <h:outputLabel value="#{bundle.EditClienteLabel_cpfCnpj}" for="cpfCnpj" />
-                    <h:inputText id="cpfCnpj" value="#{clienteController.selected.cpfCnpj}" title="#{bundle.EditClienteTitle_cpfCnpj}" />
-                    <h:outputLabel value="#{bundle.EditClienteLabel_nomeRazaoSocial}" for="nomeRazaoSocial" />
-                    <h:inputText id="nomeRazaoSocial" value="#{clienteController.selected.nomeRazaoSocial}" title="#{bundle.EditClienteTitle_nomeRazaoSocial}" />
-                </h:panelGrid>
-                <h:commandLink action="#{clienteController.update}" value="#{bundle.EditClienteSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditClienteViewLink}"/>
-                <br />
-                <h:commandLink action="#{clienteController.prepareList}" value="#{bundle.EditClienteShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditClienteIndexLink}" />
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+    <div class="container">
+        <ui:composition template="/template.xhtml">
+            <div id="main" class="container-fluid">
+                <div class="row"> 
+                    <ui:define name="title">
+                        <h:outputText value="#{bundle.EditClienteTitle}"></h:outputText>
+                    </ui:define>
+                    <ui:define name="body">
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+                            <h:panelGroup>
+                                <!--ID DO CLIENTE-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="ID" for="codigoCliente" />
+                                        <h:inputText id="codigoCliente" class="form-control" value="#{clienteController.selected.codigoCliente}" title="#{bundle.EditClienteTitle_codigoCliente}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoCliente}"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--CNPJ / RAZAO SOCIAL-->
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="CPF / CNPJ" for="cpfCnpj" />
+                                        <h:inputText id="cpfCnpj" class="form-control" value="#{clienteController.selected.cpfCnpj}" title="#{bundle.EditClienteTitle_cpfCnpj}" />
+                                    </div>
+                                    <!--NOME / RAZÃO SOCIAL DO CLIENTE-->
+                                    <div class="form-group col-md-5">
+                                        <h:outputLabel value="Nome / Razão Social" for="nomeRazaoSocial" />
+                                        <h:inputText id="nomeRazaoSocial" class="form-control" value="#{clienteController.selected.nomeRazaoSocial}" title="#{bundle.EditClienteTitle_nomeRazaoSocial}" />
+                                    </div>
+                                </div>
+                            </h:panelGroup>
+                            <h:commandLink class="btn btn-primary" action="#{clienteController.update}" value="Salvar"/>
+                            <h:outputText value="   "/>
+                            <h:commandLink class="btn btn-default" action="#{clienteController.prepareList}" value="Voltar" immediate="true"/>
+                            <h:outputText value="   "/>
+                            <h:link outcome="View" class="btn btn-success" value="Visualizar"/>
+                        </h:form>
+                    </ui:define>
+                </div>
+            </div>
+        </ui:composition>
+    </div>
 </html>
