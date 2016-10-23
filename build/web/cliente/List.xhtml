@@ -20,7 +20,6 @@
                     <!--<h:outputText value="#{clienteController.pagination.pageFirstItem + 1}..#{clienteController.pagination.pageLastItem + 1}/#{clienteController.pagination.itemsCount}"/>&nbsp;-->
                     <h:commandLink class="next" action="#{clienteController.previous}" value="#{bundle.Previous} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{clienteController.next}" value="#{bundle.Next} #{clienteController.pagination.pageSize}" rendered="#{clienteController.pagination.hasNextPage}"/>&nbsp;
-
                     <!--LISTA DE CLIENTES-->
                     <div id="list" class="row">
                         <div class="table-responsive col-md-12">
@@ -46,19 +45,14 @@
                                         <h:outputText value="RAZÃO SOCIAL / NOME"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nomeRazaoSocial}"/>
-                                </h:column>                              
-                                
+                                </h:column>        
                                 <!--COLUNA DE ENDEREÇO-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="End Rua"/>
                                     </f:facet>
                                     <h:outputText value="#{endCliente.item.rua}"/>
-                                </h:column>                             
-
-
-                                <h:outputText value="#{bundle.ListEndClienteTitle_rua}"/>
-
+                                </h:column>                                     
                                 <!--BOTÕES DE ACÕES NA LISTA - VISUALIZAR/EDITAR/EXCLUIR-->
                                 <h:column>
                                     <f:facet name="header">
@@ -72,7 +66,7 @@
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </h:commandLink>
                                     <h:outputText value=" "/>
-                                    <h:commandLink class="btn btn-danger btn-xs right" action="#{clienteController.destroy}">
+                                    <h:commandLink class="btn btn-danger btn-xs right" action="#{clienteController.destroy()}">
                                         <span class="glyphicon glyphicon-trash" alt="Excluir"></span>
                                     </h:commandLink>
                                 </h:column>
@@ -84,6 +78,8 @@
                 <h:commandLink class="btn btn-primary" action="#{clienteController.prepareCreate}" value="NOVO CLIENTE"/>
                 <br />
                 <br />
+                
+                
             </h:form>
         </ui:define>
     </ui:composition>
