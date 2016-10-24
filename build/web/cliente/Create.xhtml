@@ -49,10 +49,10 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
 
-                                    <h:commandButton class="btn btn-primary" action="#{clienteController.create}" value="proximo" onclick=''>
-<!--                                        <f:actionListener binding="#{endClienteController.prepareCreate()}"/>                                        -->
+                                    <h:commandButton class="btn btn-primary" action="#{clienteController.create}" value="SALVAR" onclick='confirm("Dados salvo com sucesso!")'>
+                                        <f:actionListener  rendered="#{endClienteController.prepareCreate()}"/>                                        
                                     </h:commandButton>
-                                    <a href="../endCliente/Create.xhtml">teste</a>
+                                    <a class="btn btn-primary" href="../endCliente/Create.xhtml">teste</a>
                                     <h:outputText value="   "/>
                                     <h:commandLink class="btn btn-default" action="#{clienteController.prepareList}" value="VOLTAR" immediate="true"/>
                                 </div>
