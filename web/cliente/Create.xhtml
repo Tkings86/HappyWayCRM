@@ -23,7 +23,17 @@
                                         <h:outputLabel  value="ID: " for="codigoCliente"/>
                                         <h:inputText id="codigoCliente" class="form-control" value="#{clienteController.selected.codigoCliente}" title="#{bundle.CreateClienteTitle_codigoCliente}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_codigoCliente} "/>
                                     </div>
-                                </div>
+
+                                    <div class="form-group col-md-2">
+                                        <h:outputLabel value="TIPO" for="tipo" />
+                                        <h:selectOneMenu id="tipo" class="form-control" value="#{clienteController.selected.tipo}" required="true" requiredMessage="Preenchimento do campo &ldquo;TIPO&rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="Pessoa Física" itemLabel="Pessoa Física" />
+                                            <f:selectItem itemValue="Pessoa Juridica" itemLabel="Pessoa Juridica" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
+                                    </div> 
+                                </div> 
 
                                 <div class="row">  
                                     <!--CNPJ / RAZAO SOCIAL-->
@@ -38,71 +48,64 @@
                                     </div>
 
                                 </div>
-                                <!--*********************************************************ENDEREÇO********************************************************8888-->
-                                <!--                                <h1><h:outputText value="Endereço"/></h1>
-                                                                COD DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="CodigoEnd:" for="codigoEnd" />
-                                                                        <h:inputText id="codigoEnd" class="form-control" value="#{endClienteController.selected.codigoEnd}" title="CodigoEnd" required="true" requiredMessage="The CodigoEnd field is required."/>
-                                                                    </div>
-                                                                </div>
-                                                                RUA DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Rua:" for="rua" />
-                                                                        <h:inputText id="rua" class="form-control" value="#{endClienteController.selected.rua}" title="Rua" />
-                                                                    </div>
-                                                                </div>
-                                                                NUMERO DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Numero:" for="numero" />
-                                                                        <h:inputText id="numero" class="form-control" value="#{endClienteController.selected.numero}" title="Numero" />
-                                                                    </div>
-                                                                </div>
-                                                                BAIRRO DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Bairro:" for="bairro" />
-                                                                        <h:inputText id="bairro" class="form-control" value="#{endClienteController.selected.bairro}" title="Bairro" />
-                                                                    </div>
-                                                                </div>
-                                                                COMPLEMENTO DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Complemento:" for="complemento" />
-                                                                        <h:inputText id="complemento" class="form-control" value="#{endClienteController.selected.complemento}" title="Complemento" />
-                                                                    </div>
-                                                                </div>
-                                                                CIDADE DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Cidade:" for="cidade" />
-                                                                        <h:inputText id="cidade" class="form-control" value="#{endClienteController.selected.cidade}" title="Cidade" />
-                                                                    </div>
-                                                                </div>
-                                                                UF DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Uf:" for="uf" />
-                                                                        <h:inputText id="uf" class="form-control" value="#{endClienteController.selected.uf}" title="Uf" />
-                                                                    </div>
-                                                                </div>
-                                                                CEP DO ENDEREÇO
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Cep:" for="cep" />
-                                                                        <h:inputText id="cep" class="form-control" value="#{endClienteController.selected.cep}" title="Cep" />
-                                                                    </div>
-                                                                </div>
-                                                                CÓDIGO DO CLIENTE
-                                                                <div class="row">                             
-                                                                    <div class="form-group col-md-5">
-                                                                        <h:outputLabel value="Codigo Cliente:" for="codigoCliente" />
-                                                                        <h:inputText id="codigoCliente" class="form-control" value="#{endClienteController.selected.codigoCliente}" title="CodigoCliente" />
-                                                                    </div>
-                                                                </div>-->
+<!--                                *********************************************************ENDEREÇO********************************************************8888
+                                <h1><h:outputText value="Endereço"/></h1>
+                                COD DO ENDEREÇO
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="CodigoEnd:" for="codigoEnd" />
+                                        <h:inputText id="codigoEnd" class="form-control" value="#{endClienteController.selected.codigoEnd}" title="CodigoEnd" required="true" requiredMessage="The CodigoEnd field is required."/>
+                                    </div>
+                                </div>
+                                RUA DO ENDEREÇO
+                                <div class="row">                             
+                                    <div class="form-group col-md-4">
+                                        <h:outputLabel value="Rua:" for="rua" />
+                                        <h:inputText id="rua" class="form-control" value="#{endClienteController.selected.rua}" title="Rua" />
+                                    </div>                             
+                                    NUMERO DO ENDEREÇO                                                           
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="Numero:" for="numero" />
+                                        <h:inputText id="numero" class="form-control" value="#{endClienteController.selected.numero}" title="Numero" />
+                                    </div>
+                                    BAIRRO DO ENDEREÇO                            
+                                    <div class="form-group col-md-2">
+                                        <h:outputLabel value="Bairro:" for="bairro" />
+                                        <h:inputText id="bairro" class="form-control" value="#{endClienteController.selected.bairro}" title="Bairro" />
+                                    </div>
+                                </div>
+                                COMPLEMENTO DO ENDEREÇO
+                                <div class="row">                             
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="Complemento:" for="complemento" />
+                                        <h:inputText id="complemento" class="form-control" value="#{endClienteController.selected.complemento}" title="Complemento" />
+                                    </div>
+                                    CIDADE DO ENDEREÇO                             
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="Cidade:" for="cidade" />
+                                        <h:inputText id="cidade" class="form-control" value="#{endClienteController.selected.cidade}" title="Cidade" />
+                                    </div>
+                                    UF DO ENDEREÇO
+
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="UF:" for="uf" />
+                                        <h:inputText id="uf" class="form-control" value="#{endClienteController.selected.uf}" title="UF" />
+                                    </div>
+                                </div>
+                                CEP DO ENDEREÇO
+                                <div class="row">                             
+                                    <div class="form-group col-md-2">
+                                        <h:outputLabel value="Cep:" for="cep" />
+                                        <h:inputText id="cep" class="form-control" value="#{endClienteController.selected.cep}" title="Cep" />
+                                    </div>
+                                </div>
+                                CÓDIGO DO CLIENTE
+                                <div class="row">                             
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="Codigo Cliente:" for="codigoCliente" />
+                                        <h:inputText id="codigoCliente" class="form-control" value="#{endClienteController.selected.codigoCliente}" title="CodigoCliente" />
+                                    </div>
+                                </div>-->
                                 <!--*********************************************************Teste********************************************************8888-->
                             </h:panelGroup>
 
@@ -115,7 +118,9 @@
                                     </h:commandButton>
                                     <a class="btn btn-primary" href="../endCliente/Create.xhtml">teste</a>
                                     <h:outputText value="   "/>
-                                    <h:commandLink class="btn btn-default" action="#{clienteController.prepareList}" value="VOLTAR" immediate="true"/>
+                                    <h:commandLink class="btn btn-default" action="#{clienteController.prepareList}" value="VOLTAR" immediate="true">
+                                        <f:actionListener  rendered="#{endClienteController.prepareList()}"/> 
+                                    </h:commandLink> 
                                 </div>
                             </div>
 

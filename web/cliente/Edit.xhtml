@@ -23,6 +23,16 @@
                                         <h:outputLabel value="ID" for="codigoCliente" />
                                         <h:inputText id="codigoCliente" class="form-control" value="#{clienteController.selected.codigoCliente}" title="#{bundle.EditClienteTitle_codigoCliente}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_codigoCliente}"/>
                                     </div>
+                                    <!--TIPO CLIENTE-->
+                                    <div class="form-group col-md-2">
+                                        <h:outputLabel value="TIPO" for="tipo" />
+                                        <h:selectOneMenu id="tipo" class="form-control" value="#{clienteController.selected.tipo}" required="true" requiredMessage="Preenchimento do campo &ldquo;TIPO&rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="Pessoa Física" itemLabel="Pessoa Física" />
+                                            <f:selectItem itemValue="Pessoa Juridica" itemLabel="Pessoa Juridica" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
+                                    </div> 
                                 </div>
                                 <div class="row">
                                     <!--CNPJ / RAZAO SOCIAL-->

@@ -40,22 +40,33 @@ public class Cliente implements Serializable {
     @GeneratedValue
     @Basic(optional = false)
     @NotNull
+
     @Column(name = "CODIGO_CLIENTE")
     private Integer codigoCliente;
     @Size(max = 18)
+
+    @Column(name = "TIPO")
+    private String tipo;
+
     @Column(name = "CPF_CNPJ")
     private String cpfCnpj;
     @Size(max = 50)
+
     @Column(name = "NOME_RAZAO_SOCIAL")
     private String nomeRazaoSocial;
+
     @OneToMany(mappedBy = "codigoCliente")
     private Collection<EndCliente> endClienteCollection;
+
     @OneToMany(mappedBy = "codigoCliente")
     private Collection<Ocorrencias> ocorrenciasCollection;
+
     @OneToMany(mappedBy = "codigoCliente")
     private Collection<Telefone> telefoneCollection;
+
     @OneToMany(mappedBy = "codigoCliente")
     private Collection<Atendimento> atendimentoCollection;
+
     @OneToMany(mappedBy = "codigoCliente")
     private Collection<Contatos> contatosCollection;
 
@@ -72,6 +83,14 @@ public class Cliente implements Serializable {
 
     public void setCodigoCliente(Integer codigoCliente) {
         this.codigoCliente = codigoCliente;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getCpfCnpj() {
@@ -159,5 +178,5 @@ public class Cliente implements Serializable {
     public String toString() {
         return "model.Cliente[ codigoCliente=" + codigoCliente + " ]";
     }
-    
+
 }

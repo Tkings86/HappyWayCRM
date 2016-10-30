@@ -32,6 +32,13 @@
                                     </f:facet>
                                     <h:outputText value="#{item.codigoCliente}"/>
                                 </h:column>
+                                <!--COLUNA DE TIPO DO CLIENTE-->
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="TIPO"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.tipo}"/>
+                                </h:column>
                                 <!--COLUNA DE CNPJ / CPF-->
                                 <h:column>
                                     <f:facet name="header">
@@ -78,8 +85,8 @@
                 <h:commandLink class="btn btn-primary" action="#{clienteController.prepareCreate}" value="NOVO CLIENTE"/>
                 <br />
                 <br />
-                
-                
+
+
             </h:form>
         </ui:define>
     </ui:composition>
