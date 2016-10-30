@@ -52,10 +52,18 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidosTitle_dataPedido}"/>
+                                <h:outputText value="DATA PEDIDO"/>
                             </f:facet>
                             <h:outputText value="#{item.dataPedido}"/>
                         </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="CODIGO CLIENTE"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoCliente}"/>
+                        </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>

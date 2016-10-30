@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -56,6 +58,9 @@ public class Pedidos implements Serializable {
     @Size(max = 10)
     @Column(name = "DATA_PEDIDO")
     private String dataPedido;
+    @JoinColumn(name = "CODIGO_CLIENTE", referencedColumnName = "CODIGO_CLIENTE")
+    @ManyToOne
+    private Cliente codigoCliente;
     @OneToMany(mappedBy = "codigoPedido")
     private Collection<Venda> vendaCollection;
 
@@ -112,6 +117,14 @@ public class Pedidos implements Serializable {
 
     public void setDataPedido(String dataPedido) {
         this.dataPedido = dataPedido;
+    }
+
+    public Cliente getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public void setCodigoCliente(Cliente codigoCliente) {
+        this.codigoCliente = codigoCliente;
     }
 
     @XmlTransient

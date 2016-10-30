@@ -23,10 +23,17 @@
                     <h:outputText value="#{pedidosController.selected.nomePedido}" title="#{bundle.ViewPedidosTitle_nomePedido}"/>
                     <h:outputText value="#{bundle.ViewPedidosLabel_valorPedido}"/>
                     <h:outputText value="#{pedidosController.selected.valorPedido}" title="#{bundle.ViewPedidosTitle_valorPedido}"/>
+
                     <h:outputText value="#{bundle.ViewPedidosLabel_nfPedido}"/>
                     <h:outputText value="#{pedidosController.selected.nfPedido}" title="#{bundle.ViewPedidosTitle_nfPedido}"/>
-                    <h:outputText value="#{bundle.ViewPedidosLabel_dataPedido}"/>
+
+                    <h:outputText value="DATA PEDIDO"/>
                     <h:outputText value="#{pedidosController.selected.dataPedido}" title="#{bundle.ViewPedidosTitle_dataPedido}"/>
+
+                    <h:outputText value="CODIGO CLIENTE"/>
+                    <h:outputText value="#{pedidosController.selected.codigoCliente}" title="#{bundle.ViewPedidosTitle_dataPedido}"/>
+
+
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{pedidosController.destroyAndView}" value="#{bundle.ViewPedidosDestroyLink}"/>

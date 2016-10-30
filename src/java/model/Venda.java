@@ -43,6 +43,7 @@ public class Venda implements Serializable {
     @NotNull
     @Column(name = "CODIGO_VENDA")
     private Integer codigoVenda;
+    
     @Column(name = "VALOR_VENDA")
     private Long valorVenda;
     @Column(name = "DATA_VENDA")
@@ -54,7 +55,7 @@ public class Venda implements Serializable {
     @JoinColumn(name = "CODIGO_PEDIDO", referencedColumnName = "CODIGO_PEDIDO")
     @ManyToOne
     private Pedidos codigoPedido;
-
+    
     public Venda() {
     }
 
@@ -70,6 +71,8 @@ public class Venda implements Serializable {
         this.codigoVenda = codigoVenda;
     }
 
+    
+//VALOR VENDA
     public Long getValorVenda() {
         return valorVenda;
     }
@@ -78,6 +81,7 @@ public class Venda implements Serializable {
         this.valorVenda = valorVenda;
     }
 
+//DATA VENDA
     public Date getDataVenda() {
         return dataVenda;
     }
