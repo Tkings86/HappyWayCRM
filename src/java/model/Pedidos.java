@@ -61,7 +61,7 @@ public class Pedidos implements Serializable {
     @JoinColumn(name = "CODIGO_CLIENTE", referencedColumnName = "CODIGO_CLIENTE")
     @ManyToOne
     private Cliente codigoCliente;
-    @OneToMany(mappedBy = "codigoPedido")
+    @OneToMany(mappedBy = "codigoCliente")
     private Collection<Venda> vendaCollection;
 
     public Pedidos() {

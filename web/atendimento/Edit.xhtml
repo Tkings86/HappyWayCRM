@@ -20,21 +20,21 @@
 
                                 <!--ID DO ATENDIMENTO-->
                                 <div class="row">                             
-                                    <div class="form-group col-md-1">
+                                    <div class="form-group col-md-3">
                                         <h:outputLabel value="ID" for="codigoAtend" />
                                         <h:inputText id="codigoAtend" class="form-control" value="#{atendimentoController.selected.codigoAtend}" title="#{bundle.EditAtendimentoTitle_codigoAtend}" required="true" requiredMessage="#{bundle.EditAtendimentoRequiredMessage_codigoAtend}"/>
                                     </div>
                                 </div>
                                 <!--DESCRIÇÃO DO ATENDIMENTO-->
                                 <div class="row">                             
-                                    <div class="form-group col-md-1">
+                                    <div class="form-group col-md-3">
                                         <h:outputLabel value="DESCRIÇÃO DO CASO" for="descrição" />
                                         <h:inputText id="descrição" class="form-control" value="#{atendimentoController.selected.descrição}" title="#{bundle.EditAtendimentoTitle_descrição}" />
                                     </div>
                                 </div>
                                 <!--DATA CRIAÇÃO-->
                                 <div class="row">                             
-                                    <div class="form-group col-md-1">
+                                    <div class="form-group col-md-3">
                                         <h:outputLabel value="DATA CRIAÇÃO" for="dataCriacaoHora" />
                                         <h:inputText id="dataCriacaoHora" class="form-control" value="#{atendimentoController.selected.dataCriacaoHora}" title="#{bundle.EditAtendimentoTitle_dataCriacaoHora}" >
                                             <f:convertDateTime pattern="dd/mm/yyyy" />
@@ -43,18 +43,20 @@
                                 </div>
 
                                 <!--STATUS DA ATENDIMENTO-->
-                                <div class="form-group col-md-2">
-                                    <h:outputLabel value="STATUS" for="status" />
-                                    <h:selectOneMenu id="status" class="form-control" value="#{atendimentoController.selected.status}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
-                                        <f:selectItem itemValue="" itemLabel="Selecione..." />
-                                        <f:selectItem itemValue="Aberta" itemLabel="Aberta" />
-                                        <f:selectItem itemValue="Fechada" itemLabel="Fechada" />
-                                    </h:selectOneMenu>
-                                    <h:message class="alert-danger" for="titulacao"/>
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="STATUS" for="status" />
+                                        <h:selectOneMenu id="status" class="form-control" value="#{atendimentoController.selected.status}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="Aberta" itemLabel="Aberta" />
+                                            <f:selectItem itemValue="Fechada" itemLabel="Fechada" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
+                                    </div> 
                                 </div> 
                                 <!--ID DO CLIENTE-->
                                 <div class="row">                             
-                                    <div class="form-group col-md-1">
+                                    <div class="form-group col-md-3">
                                         <h:outputLabel value="ID DO CLIENTE" for="codigoCliente" />
                                         <h:selectOneMenu id="codigoCliente" class="form-control" value="#{atendimentoController.selected.codigoCliente}" title="#{bundle.EditAtendimentoTitle_codigoCliente}" >
                                             <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>

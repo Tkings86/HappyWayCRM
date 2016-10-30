@@ -52,9 +52,9 @@ public class Venda implements Serializable {
     @Size(max = 15)
     @Column(name = "ATRIBUIDO")
     private String atribuido;
-    @JoinColumn(name = "CODIGO_PEDIDO", referencedColumnName = "CODIGO_PEDIDO")
+    @JoinColumn(name = "CODIGO_CLIENTE", referencedColumnName = "CODIGO_CLIENTE")
     @ManyToOne
-    private Pedidos codigoPedido;
+    private Pedidos codigoCliente;
     
     public Venda() {
     }
@@ -98,12 +98,12 @@ public class Venda implements Serializable {
         this.atribuido = atribuido;
     }
 
-    public Pedidos getCodigoPedido() {
-        return codigoPedido;
+    public Pedidos getCodigoCliente() {
+        return codigoCliente;
     }
 
-    public void setCodigoPedido(Pedidos codigoPedido) {
-        this.codigoPedido = codigoPedido;
+    public void setCodigoCliente(Pedidos codigoCliente) {
+        this.codigoCliente = codigoCliente;
     }
 
     @Override

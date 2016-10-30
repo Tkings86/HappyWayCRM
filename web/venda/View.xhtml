@@ -18,15 +18,17 @@
                     <h:outputText value="Id:"/>
                     <h:outputText value="#{vendaController.selected.codigoVenda}" title="#{bundle.ViewVendaTitle_codigoVenda}"/>
                     <h:outputText value="Valor da venda:"/>
-                    <h:outputText value="#{vendaController.selected.valorVenda}" title="#{bundle.ViewVendaTitle_valorVenda}"/>
+                    <h:outputText value="#{vendaController.selected.valorVenda}" title="#{bundle.ViewVendaTitle_valorVenda}">
+                    <f:convertNumber currencySymbol="R$" type="currency" />
+                    </h:outputText>
                     <h:outputText value="Data da Venda:"/>
                     <h:outputText value="#{vendaController.selected.dataVenda}" title="#{bundle.ViewVendaTitle_dataVenda}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     <h:outputText value="Atribuido à:"/>
                     <h:outputText value="#{vendaController.selected.atribuido}" title="#{bundle.ViewVendaTitle_atribuido}"/>
                     <h:outputText value="Id do Pedido:"/>
-                    <h:outputText value="#{vendaController.selected.codigoPedido}" title="#{bundle.ViewVendaTitle_codigoPedido}"/>
+                    <h:outputText value="#{vendaController.selected.codigoCliente}" title="#{bundle.ViewVendaTitle_codigoPedido}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{vendaController.destroyAndView}" class="btn btn-danger" value="Excluir"/>

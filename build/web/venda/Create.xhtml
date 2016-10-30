@@ -21,7 +21,7 @@
                                 <div class="row">                             
                                     <div class="form-group col-md-1">
                                         <h:outputLabel value="ID VENDA" for="codigoVenda" />
-                                        <h:inputText id="codigoVenda" class="form-control" value="#{vendaController.selected.codigoVenda}" title="#{bundle.CreateVendaTitle_codigoVenda}" required="true" requiredMessage="#{bundle.CreateVendaRequiredMessage_codigoVenda}"/>
+                                        <h:inputText id="codigoVenda" class="form-control" value="#{vendaController.selected.codigoVenda}" title="#{bundle.CreateVendaTitle_codigoVenda}" required="true" requiredMessage="O Id da venda deve ser preenchido"/>
                                     </div>
                                 </div>
 
@@ -34,8 +34,8 @@
                                     <!--DATA DA VENDA-->
                                     <div class="form-group col-md-2">
                                         <h:outputLabel value="DATA" for="dataVenda" />
-                                        <h:inputText id="dataVenda" class="form-control" value="#{vendaController.selected.dataVenda}" title="#{bundle.CreateVendaTitle_dataVenda}" >
-                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        <h:inputText id="dataVenda" class="form-control" value="#{vendaController.selected.dataVenda}" required="true" requiredMessage="Preenchimento do campo &ldquo;Data da venda&rdquo; é obrigatório!!">
+                                            <f:convertDateTime type="both" pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                                         </h:inputText>
                                     </div>
                                 </div>
@@ -46,15 +46,16 @@
                                         <h:inputText id="atribuido" class="form-control" value="#{vendaController.selected.atribuido}" title="#{bundle.CreateVendaTitle_atribuido}" />
                                     </div>
                                 </div>
-                                <!--CODIGO PEDIDO-->
+                                <!--CODIGO CLIENTE-->
                                 <div class="row">                             
                                     <div class="form-group col-md-2">
-                                        <h:outputLabel value="ID DO PEDIDO" for="codigoPedido" />
-                                        <h:selectOneMenu id="codigoPedido" class="form-control" value="#{vendaController.selected.codigoPedido}" title="#{bundle.CreateVendaTitle_codigoPedido}" >
-                                            <f:selectItems value="#{pedidosController.itemsAvailableSelectOne}"/>
+                                        <h:outputLabel value="ID DO CLIENTE" for="codigoCliente" />
+                                        <h:selectOneMenu id="codigoCliente" class="form-control" value="#{vendaController.selected.codigoCliente}">
+                                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
                                         </h:selectOneMenu>
                                     </div>
-                                    </div>
+                                </div>
+
                             </h:panelGroup>
                             <br />
                             <h:commandLink class="btn btn-primary" action="#{vendaController.create}" value="SALVAR" />

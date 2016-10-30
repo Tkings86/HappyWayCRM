@@ -20,13 +20,13 @@
 
                     <h:commandLink action="#{vendaController.previous}" value="#{bundle.Previous} #{vendaController.pagination.pageSize}" rendered="#{vendaController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{vendaController.next}" value="#{bundle.Next} #{vendaController.pagination.pageSize}" rendered="#{vendaController.pagination.hasNextPage}"/>&nbsp;
-                    
+
                     <!--LISTA DE VENDAS-->
                     <div id="list" class="row">
                         <div class="table-responsive col-md-12">
                             <!--ALTERA O TIPO DE LISTA-->
                             <h:dataTable value="#{vendaController.items}" var="item" class="table table-striped" cellspacing="0" cellpadding="0">
-                                 <!--COLUNA DE CODIGO DA VENDA-->
+                                <!--COLUNA DE CODIGO DA VENDA-->
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="ID"/>
@@ -38,7 +38,9 @@
                                     <f:facet name="header">
                                         <h:outputText value="VALOR"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.valorVenda}"/>
+                                    <h:outputText value="#{item.valorVenda}">
+                                        <f:convertNumber currencySymbol="R$" type="currency" />
+                                </h:outputText>
                                 </h:column>
                                 <!--COLUNA DATA DA VENDA-->
                                 <h:column>
@@ -57,12 +59,12 @@
                                     <h:outputText value="#{item.atribuido}"/>
                                 </h:column>
                                 <!--COLUNA CODIGO DO PEDIDO-->
-                                <h:column>
+<!--                                <h:column>
                                     <f:facet name="header">
-                                        <h:outputText value="CODIGO DO PEDIDO"/>
+                                        <h:outputText value="CODIGO DO CLIENTE"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.codigoPedido}"/>
-                                </h:column>
+                                    <h:outputText value="#{item.codigoCliente}"/>
+                                </h:column>-->
                                 <!--BOTÕES DE ACÕES NA LISTA - VISUALIZAR/EDITAR/EXCLUIR-->
                                 <h:column>
                                     <f:facet name="header">
