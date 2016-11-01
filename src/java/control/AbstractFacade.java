@@ -7,6 +7,7 @@ package control;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -36,6 +37,15 @@ public abstract class AbstractFacade<T> {
 
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
+    }
+    
+    public Object fyndLogin(String login, String senha) {
+        
+       Query q = getEntityManager().createNamedQuery("Usuario.findByLoginSenha");
+       q.setParameter("nome", login);
+       q.setParameter("senha", senha);
+       
+       return q.getSingleResult();
     }
 
     public List<T> findAll() {

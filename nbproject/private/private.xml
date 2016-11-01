@@ -9,7 +9,15 @@
             <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/view/ClienteController.java</file>
         </group>
         <group>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/model/Usuario.java</file>
             <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/cliente/Create.xhtml</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/control/AbstractFacade.java</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/login.html</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/view/UsuarioController.java</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/venda/Create.xhtml</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/model/Cliente.java</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/cliente/Create_1.xhtml</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/campanha/Create.xhtml</file>
         </group>
     </open-files>
 </project-private>

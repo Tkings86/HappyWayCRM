@@ -28,6 +28,26 @@ public class UsuarioController implements Serializable {
     private control.UsuarioFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    private String login;
+    private String senha;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
 
     public UsuarioController() {
     }
@@ -191,6 +211,16 @@ public class UsuarioController implements Serializable {
     public Usuario getUsuario(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
+    
+      public String login() {
+        if(ejbFacade.fyndLogin(login, senha) != null){
+        return "List";
+        }else{
+        return "Edit";
+        }
+      
+      }
+    
 
     @FacesConverter(forClass = Usuario.class)
     public static class UsuarioControllerConverter implements Converter {

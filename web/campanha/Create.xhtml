@@ -43,7 +43,7 @@
                                     <!--TIPO DA CAMPANHA-->
                                     <div class="form-group col-md-2">
                                         <h:outputLabel value="TIPO" for="tipo" />
-                                        <h:selectOneMenu id="tipo" class="form-control" value="#{campanhaController.selected.tipo}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
+                                        <h:selectOneMenu id="tipo" class="form-control" value="#{campanhaController.selected.tipo}" required="true" requiredMessage="Preenchimento do campo &ldquo;CAMPANHA&rdquo; é obrigatório!!" >
                                             <f:selectItem itemValue="" itemLabel="Selecione..." />
                                             <f:selectItem itemValue="E-mail" itemLabel="E-mail" />
                                             <f:selectItem itemValue="Site" itemLabel="Site" />
@@ -53,7 +53,7 @@
                                     <!--FREQUENCIA DA CAMPANHA-->
                                     <div class="form-group col-md-2">
                                         <h:outputLabel value="FREQUENCIA" for="frequencia" />
-                                        <h:selectOneMenu id="frequencia" class="form-control" value="#{campanhaController.selected.frequencia}" required="true" requiredMessage="Preenchimento do campo &ldquo;STATUS&rdquo; é obrigatório!!" >
+                                        <h:selectOneMenu id="frequencia" class="form-control" value="#{campanhaController.selected.frequencia}" required="true" requiredMessage="Preenchimento do campo &ldquo;FRENQUENCIA&rdquo; é obrigatório!!" >
                                             <f:selectItem itemValue="" itemLabel="Selecione..." />
                                             <f:selectItem itemValue="Diaria" itemLabel="Diaria" />
                                             <f:selectItem itemValue="Semanal" itemLabel="Semanal" />
@@ -74,25 +74,27 @@
                                     </div>
                                     <!--DATA FINAL DA CAMPANHA-->                                    
                                     <div class="form-group col-md-2">
-                                        <h:outputLabel value="DATA FINAL" for="dataFinal" />
-                                        <h:inputText id="dataFinal" class="form-control" value="#{campanhaController.selected.dataFinal}" title="#{bundle.CreateCampanhaTitle_dataFinal}" />                                                                            
+                                        <h:outputLabel value="DATA FINAL" for="dataFinal">
+                                        <h:inputText id="dataFinal" class="form-control" value="#{campanhaController.selected.dataFinal}"/>
+                                        
+                                        </h:outputLabel>
                                     </div>
                                     <!--CUSTO ESPERADO DA CAMPANHA-->
                                     <div class="form-group col-md-3">
                                         <h:outputLabel value="CUSTO ESPERADO" for="custoEsperado" />
-                                        <h:inputText id="custoEsperado" class="form-control" value="#{campanhaController.selected.custoEsperado}" title="#{bundle.CreateCampanhaTitle_custoEsperado}" />                                              
+                                        <h:inputText id="custoEsperado" class="form-control" value="#{campanhaController.selected.custoEsperado}"/>                                              
                                     </div>
                                     <!--RECEITA ESPERADA DA CAMPANHA-->
                                     <div class="form-group col-md-3">
                                         <h:outputLabel value="RECEITA ESPERADA" for="receitaEsperada" />
-                                        <h:inputText id="receitaEsperada" class="form-control" value="#{campanhaController.selected.receitaEsperada}" title="#{bundle.CreateCampanhaTitle_receitaEsperada}" />                                                
+                                        <h:inputText id="receitaEsperada" class="form-control" value="#{campanhaController.selected.receitaEsperada}"/>                                                
                                     </div> 
                                 </div> 
                                 <!--VINCULO DA CAMPANHA-->
                                 <div class="row">                             
                                     <div class="form-group col-md-3">
                                         <h:outputLabel value="VINCULADO" for="vinculado" />
-                                        <h:inputText id="vinculado" class="form-control" value="#{campanhaController.selected.vinculado}" title="#{bundle.CreateCampanhaTitle_vinculado}" />                                            
+                                        <h:inputText id="vinculado" class="form-control" value="#{campanhaController.selected.vinculado}"/>                                            
                                     </div>
                                 </div> 
                                 <!--DESCRIÇÃO DA CAMPANHA-->
