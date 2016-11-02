@@ -4,40 +4,77 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.CreateUsuarioTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_codigoUsuario}" for="codigoUsuario" />
-                    <h:inputText id="codigoUsuario" value="#{usuarioController.selected.codigoUsuario}" title="#{bundle.CreateUsuarioTitle_codigoUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_codigoUsuario}"/>
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_nome}" for="nome" />
-                    <h:inputText id="nome" value="#{usuarioController.selected.nome}" title="#{bundle.CreateUsuarioTitle_nome}" />
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_nomeDeUsuario}" for="nomeDeUsuario" />
-                    <h:inputText id="nomeDeUsuario" value="#{usuarioController.selected.nomeDeUsuario}" title="#{bundle.CreateUsuarioTitle_nomeDeUsuario}" />
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_senha}" for="senha" />
-                    <h:inputText id="senha" value="#{usuarioController.selected.senha}" title="#{bundle.CreateUsuarioTitle_senha}" />
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_funcao}" for="funcao" />
-                    <h:inputText id="funcao" value="#{usuarioController.selected.funcao}" title="#{bundle.CreateUsuarioTitle_funcao}" />
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_nivelDeSenha}" for="nivelDeSenha" />
-                    <h:inputText id="nivelDeSenha" value="#{usuarioController.selected.nivelDeSenha}" title="#{bundle.CreateUsuarioTitle_nivelDeSenha}" />
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{usuarioController.create}" value="#{bundle.CreateUsuarioSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{usuarioController.prepareList}" value="#{bundle.CreateUsuarioShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateUsuarioIndexLink}"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+    <div class="container">
+        <ui:composition template="/template.xhtml">
+            <div id="main" class="container-fluid">
+                <div class="row">
+                    <ui:define name="title">
+                        <h:outputText value="Adicionar Usuario"></h:outputText>
+                    </ui:define>
+                    <ui:define name="body">
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+                            <h:panelGroup>
+                                <!--ID-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-1">
+                                        <h:outputLabel value="ID:" for="codigoUsuario" />
+                                        <h:inputText id="codigoUsuario" class="form-control" value="#{usuarioController.selected.codigoUsuario}" title="#{bundle.CreateUsuarioTitle_codigoUsuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_codigoUsuario}"/>
+                                    </div>
+                                    <!--NOME-->
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="NOME" for="nomeDeUsuario" />
+                                        <h:inputText id="nomeDeUsuario" class="form-control" value="#{usuarioController.selected.nomeDeUsuario}" title="#{bundle.CreateUsuarioTitle_nomeDeUsuario}" />
+                                    </div>
+                                    <!--FUNÇÃO-->
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="FUNÇÃO:" for="funcao" />
+                                        <h:inputText id="funcao" class="form-control" value="#{usuarioController.selected.funcao}" title="#{bundle.CreateUsuarioTitle_funcao}" />
+                                    </div>
+                                </div>
+                                <!--USUARIO-->
+                                <div class="row">                             
+                                    <div class="form-group col-md-3">
+                                        <h:outputLabel value="USUARIO" for="nome" />
+                                        <h:inputText id="nome" class="form-control" value="#{usuarioController.selected.nome}" title="#{bundle.CreateUsuarioTitle_nome}" />
+                                    </div>
+                                    <!--SENHA-->
+                                    <div class="row">                             
+                                        <div class="form-group col-md-3">
+                                            <h:outputLabel value="SENHA:" for="senha" />
+                                            <h:inputText id="senha" class="form-control" value="#{usuarioController.selected.senha}" title="#{bundle.CreateUsuarioTitle_senha}" />
+                                        </div>
+                                    </div>
+                                    <!--NIVEL DE SENHA-->
+                                    <div class="form-group col-md-2">
+                                        <h:outputLabel value="NIVEL DE SENHA:" for="nivelDeSenha" />
+                                        <h:selectOneMenu id="nivelDeSenha" class="form-control" value="#{usuarioController.selected.nivelDeSenha}" required="true" requiredMessage="Preenchimento do campo &ldquo; NÍVEL DE SENHA &rdquo; é obrigatório!!" >
+                                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                                            <f:selectItem itemValue="Administrador" itemLabel="Administrador" />
+                                            <f:selectItem itemValue="Analista" itemLabel="Analista" />
+                                        </h:selectOneMenu>
+                                        <h:message class="alert-danger" for="titulacao"/>
+                                    </div> 
+                                </div>
+                            </h:panelGroup>
+                            <!--BOTOES SALVAR E VOLTAR FINAL DA PAGINA-->
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <h:commandButton class="btn btn-primary" action="#{usuarioController.create}" value="SALVAR">
+                                        <f:actionListener  rendered="#{endClienteController.prepareCreate()}"/>                                        
+                                    </h:commandButton>
+                                    <h:outputText value="   "/>
+                                    <h:commandLink class="btn btn-default" action="#{usuarioController.prepareList}" value="VOLTAR" immediate="true">
+                                        <f:actionListener  rendered="#{endClienteController.prepareList()}"/> 
+                                    </h:commandLink> 
+                                </div>
+                            </div>
+                        </h:form>
+                    </ui:define>
+                </div>
+            </div>
+        </ui:composition>
+    </div>
 </html>

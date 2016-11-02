@@ -29,7 +29,7 @@
     </h:head>
 
     <h:body>
- 
+
         <nav role="navigation" class="navbar navbar-default">
             <div class="navbar-header">
                 <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">                    
@@ -39,11 +39,12 @@
                     <span class="icon-bar"></span>                
                 </button>   
                 <img class="img" id="img_logo" src="../resources/img/haapywayLogoPrincipal.jpg"></img>
-                <a href="#" class="navbar-right navbar-brand">CRM - HAPPY WAY</a>  
+                <a href="#" class="navbar-right navbar-brand">CRM - HAPPY WAY</a>
+
 
             </div>
             <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-top-links navbar-right navbar-nav">
+                <ul class="nav navbar-top-links navbar-right">
                     <li class=""><h:link outcome="/index" value="Dashboard"/></li>
                     <li><h:link outcome="/cliente/List" value="Clientes"/></li>
                     <li><h:link outcome="/venda/List" value="Vendas"/></li>
@@ -56,27 +57,35 @@
                 </ul>
             </div>
         </nav>
-<div class="container">
-
-        <h1>
-            <ui:insert name="title">Default Title</ui:insert>
-        </h1>
-        <p>
-            <ui:insert name="body">Default Body</ui:insert>
-        </p>
-
-        <section>
-            <div id="wrap" align="center">
-                <p></p>
-                <img src="../resources/img/logotipoEbics.png" alt=""/>
-                <p></p>
-                <p>Ebic’s - Enterprise Business at Integrated Communications Systems LTDA.</p>
-                <p>Av. Paulista, nº 3500, Bairro Consolação, Edifício Paulista 3º Andar, São Paulo - SP.</p>
-                <p>(11) 3494-9434</p> 
-                <p>ebicsystems.comunidades.net</p>
+        <div class="container">
+            <div class="dropdown">
+                <a class="" type="" id="configUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Arquivos
+                    <span class="icon-bar"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="usuario/Create.xhtml">Incluir Usuario</a></li>
+                </ul>
             </div>
-        </section>
-     </div>
+            <h1>
+                <ui:insert name="title">Default Title</ui:insert>
+            </h1>
+            <p>
+                <ui:insert name="body">Default Body</ui:insert>
+            </p>
+
+            <section>
+                <div id="wrap" align="center">
+                    <p></p>
+                    <img src="../resources/img/logotipoEbics.png" alt=""/>
+                    <p></p>
+                    <p>Ebic’s - Enterprise Business at Integrated Communications Systems LTDA.</p>
+                    <p>Av. Paulista, nº 3500, Bairro Consolação, Edifício Paulista 3º Andar, São Paulo - SP.</p>
+                    <p>(11) 3494-9434</p> 
+                    <p>ebicsystems.comunidades.net</p>
+                </div>
+            </section>
+        </div>
     </h:body>
 
 </html>

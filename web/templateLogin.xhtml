@@ -62,21 +62,22 @@
 
                     <p:dialog header="Login de Acesso - Industria de Brinquedos HappyWay" widgetVar="dlg" resizable="true">
                         <img src="resources/img/haapywayLogoPrincipal.jpg" alt=""/>
+                        <div class="center-block" align="center">
+                            <h:panelGrid columns="1" cellpadding="45">
 
-                        <h:panelGrid columns="1" cellpadding="45">
-
-                            <!--USUARIO-->
-                            <h:outputLabel for="nome" value="Usuario" />
-                            <p:inputText id="nome" value="#{usuarioController.login}" required="true" label="Usuario" />
-                            <!--SENHA-->
-                            <h:outputLabel for="senha" value="Senha" />
-                            <p:password id="senha" value="#{usuarioController.senha}" required="true" label="Senha" />
-
-                                <!--BOTÃO PARA ACESSAR-->
-                                <p:commandButton value="Acessar" update="growl" action="#{usuarioController.login}"
-                                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-
-                        </h:panelGrid>
+                                <!--USUARIO-->
+                                <h:outputLabel for="nome" value="Usuario:" />
+                                <p:inputText id="nome" value="#{usuarioController.login}" required="true" label="Usuario" />
+                                <!--SENHA-->
+                                <h:outputLabel for="senha" value="Senha:" />
+                                <p:password id="senha" value="#{usuarioController.senha}" required="true" label="Senha" />
+                                <f:facet name="footer">
+                                    <!--BOTÃO PARA ACESSAR-->
+                                    <p:commandButton class="" value="Acessar" update="growl" action="#{usuarioController.login}"
+                                                     oncomplete="handleLoginRequest(xhr, status, args)" />
+                                </f:facet>
+                            </h:panelGrid>
+                        </div>
                     </p:dialog>
                 </h:form>
 

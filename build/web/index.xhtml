@@ -37,12 +37,13 @@
                     <span class="icon-bar"></span>                
                 </button>   
                 <img class="img" id="img_logo" src="resources/img/haapywayLogoPrincipal.jpg"></img>
-                <a href="#" class="navbar-right navbar-brand">CRM - HAPPY WAY</a>  
+                <a href="" class="navbar-right navbar-brand">CRM - HAPPY WAY</a>  
 
             </div>
+
             <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-top-links navbar-right navbar-nav">
-                    <li class=""><h:link outcome="/index" value="Dashboard"/></li>
+                <ul class="nav navbar-top-links navbar-right">                
+                    <li class="icon-cog"><h:link outcome="/index" value="Dashboard"/></li>
                     <li><h:link outcome="/cliente/List" value="Clientes"/></li>
                     <li><h:link outcome="/venda/List" value="Vendas"/></li>
                     <li><h:link outcome="/campanha/List" value="Campanhas"/></li>
@@ -54,272 +55,283 @@
 
                 </ul>
             </div>
+
         </nav>
-
-        <div class="col-lg-12">
-            <h1 class="pager">DASHBOARD</h1>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <!--************************************INICIO NOTIFICAÇÕES ******************************************-->
-                            <div class="col-xs-3">
-                                <i class="glyphicon glyphicon-bell"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>Novo comentários!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Ver Detalhes</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="dropdown">
+                    <a class="" type="" id="configUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Arquivos
+                        <span class="icon-bar"></span>
                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="usuario/Create.xhtml">Incluir Usuario</a></li>
+                    </ul>
+                </div>
+                <h1 class="pager">DASHBOARD</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <!--************************************INICIO NOTIFICAÇÕES ******************************************-->
+                                <div class="col-xs-3">
+                                    <i class="glyphicon glyphicon-bell"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">26</div>
+                                    <div>Novo comentários!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="glyphicon glyphicon-flag"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">12</div>
+                                    <div>Novas tarefas!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver detalhes</span>
+                                <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="glyphicon glyphicon-inbox"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">124</div>
+                                    <div>Novas Vendas!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="glyphicon glyphicon-headphones"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">13</div>
+                                    <div>Casos de Suporte!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="glyphicon glyphicon-flag"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
-                                <div>Novas tarefas!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Ver detalhes</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-red">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="glyphicon glyphicon-inbox"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>Novas Ordens de Serviços!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Ver Detalhes</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="glyphicon glyphicon-headphones"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">13</div>
-                                <div>Casos de Suporte!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">Ver Detalhes</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-align-center"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-6"> <!--TAMANHO DA JANELA DOS GRAFICOS-->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Grafico de Vendas 
-                        <div class="pull-right">
-                            <div class="btn-group"> 
+            <div class="row">
+                <div class="col-lg-6"> <!--TAMANHO DA JANELA DOS GRAFICOS-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Grafico de Vendas 
+                            <div class="pull-right">
+                                <div class="btn-group"> 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- GRAFICO DE VENDAS -->
-                    <div class="panel-body">
-                        <div id="morris-area-chart"></div>
-                        <!--**********************************************************************************************************************-->
-                        <div class="box-chart">
+                        <!-- GRAFICO DE VENDAS -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                            <!--**********************************************************************************************************************-->
+                            <div class="box-chart">
 
-                            <canvas id="GraficoPizza" style="width:100%;"></canvas>
+                                <canvas id="GraficoPizza" style="width:100%;"></canvas>
 
-                            <script type="text/javascript">
+                                <script type="text/javascript">
 
-                                var options = {
-                                    responsive: true
-                                };
+                                    var options = {
+                                        responsive: true
+                                    };
 
-                                var data = [
-                                    {
-                                        value: randomnb(),
-                                        color: "#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Loja Centro SP"
-                                    },
-                                    {
-                                        value: randomnb(),
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Loja Ipiranga"
-                                    },
-                                    {
-                                        value: randomnb(),
-                                        color: "#FDB45C",
-                                        highlight: "#FFC870",
-                                        label: "Loja Bras"
-                                    },
-                                    {
-                                        value: randomnb(),
-                                        color: "black",
-                                        highlight: "black",
-                                        label: "Loja Santo André"
-                                    },
-                                    {
-                                        value: randomnb(),
-                                        color: "blue",
-                                        highlight: "blue",
-                                        label: "E-commerce"
+                                    var data = [
+                                        {
+                                            value: randomnb(),
+                                            color: "#F7464A",
+                                            highlight: "#FF5A5E",
+                                            label: "Loja Centro SP"
+                                        },
+                                        {
+                                            value: randomnb(),
+                                            color: "#46BFBD",
+                                            highlight: "#5AD3D1",
+                                            label: "Loja Ipiranga"
+                                        },
+                                        {
+                                            value: randomnb(),
+                                            color: "#FDB45C",
+                                            highlight: "#FFC870",
+                                            label: "Loja Bras"
+                                        },
+                                        {
+                                            value: randomnb(),
+                                            color: "black",
+                                            highlight: "black",
+                                            label: "Loja Santo André"
+                                        },
+                                        {
+                                            value: randomnb(),
+                                            color: "blue",
+                                            highlight: "blue",
+                                            label: "E-commerce"
+                                        }
+                                    ]
+                                    window.onload = function () {
+
+                                        var ctx = document.getElementById("GraficoPizza").getContext("2d");
+                                        var PizzaChart = new Chart(ctx).Pie(data, options);
                                     }
-                                ]
-                                window.onload = function () {
-
-                                    var ctx = document.getElementById("GraficoPizza").getContext("2d");
-                                    var PizzaChart = new Chart(ctx).Pie(data, options);
-                                }
-                            </script>           
+                                </script>           
+                            </div>
+                            <!--**********************************************************************************************************************-->
                         </div>
-                        <!--**********************************************************************************************************************-->
                     </div>
+
+
+
+
+                    <!--Exemplo de Gráfico de Barras -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico de Campanhas
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+
+                            <div class="col-lg-6">
+                                <!--**********************************************************************************************************************-->                        
+
+
+
+                                <!--**********************************************************************************************************************-->                        
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.col-lg-4 (nested) -->
+                            <div class="col-lg-8">
+                                <div id="morris-bar-chart"></div>
+                            </div>
+                            <!-- /.col-lg-8 (nested) -->
+
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- ************************************************ PAINEL DE NOTIFICAÇÕES **************************************************** -->
                 </div>
-
-
-
-
-                <!--Exemplo de Gráfico de Barras -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico de Campanhas
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-
-                        <div class="col-lg-6">
-                            <!--**********************************************************************************************************************-->                        
-
-                            
-
-                            <!--**********************************************************************************************************************-->                        
-                            <!-- /.table-responsive -->
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Painel de Notificações
                         </div>
-                        <!-- /.col-lg-4 (nested) -->
-                        <div class="col-lg-8">
-                            <div id="morris-bar-chart"></div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i> Novo Comentário
+                                    <span class="pull-right text-muted small"><em>4 minutos</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i> 3 Novos seguidores
+                                    <span class="pull-right text-muted small"><em>12 minutos </em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i> Mensagem Enviado
+                                    <span class="pull-right text-muted small"><em>27 minutos ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-tasks fa-fw"></i> Nova Tarefa 
+                                    <span class="pull-right text-muted small"><em>43 minutos ago</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-upload fa-fw"></i> Servidor Reiniciado
+                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-bolt fa-fw"></i> Servidor Caiu!
+                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-warning fa-fw"></i> Servidor Não responde
+                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-shopping-cart fa-fw"></i> Nova Ordem Inserida
+                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-money fa-fw"></i> Pagamento Recebido
+                                    <span class="pull-right text-muted small"><em>Ontem</em>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">Visualizar todos os Alertas</a>
                         </div>
-                        <!-- /.col-lg-8 (nested) -->
-
-                        <!-- /.row -->
+                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel-body -->
-                </div>
-                <!-- ************************************************ PAINEL DE NOTIFICAÇÕES **************************************************** -->
-            </div>
-            <!-- /.col-lg-8 -->
-            <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Painel de Notificações
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-comment fa-fw"></i> Novo Comentário
-                                <span class="pull-right text-muted small"><em>4 minutos</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-twitter fa-fw"></i> 3 Novos seguidores
-                                <span class="pull-right text-muted small"><em>12 minutos </em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-envelope fa-fw"></i> Mensagem Enviado
-                                <span class="pull-right text-muted small"><em>27 minutos ago</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-tasks fa-fw"></i> Nova Tarefa 
-                                <span class="pull-right text-muted small"><em>43 minutos ago</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-upload fa-fw"></i> Servidor Reiniciado
-                                <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-bolt fa-fw"></i> Servidor Caiu!
-                                <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-warning fa-fw"></i> Servidor Não responde
-                                <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-shopping-cart fa-fw"></i> Nova Ordem Inserida
-                                <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-money fa-fw"></i> Pagamento Recebido
-                                <span class="pull-right text-muted small"><em>Ontem</em>
-                                </span>
-                            </a>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico de Desempenho S.A.C
                         </div>
-                        <!-- /.list-group -->
-                        <a href="#" class="btn btn-default btn-block">Visualizar todos os Alertas</a>
+                        <div class="panel-body">
+                            <div id="morris-donut-chart"></div>
+                            <a href="#" class="btn btn-default btn-block">Ver Detalhes</a>
+                        </div>
+                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel-body -->
-                </div>
-                <!-- /.panel -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Gráfico de Desempenho S.A.C
-                    </div>
-                    <div class="panel-body">
-                        <div id="morris-donut-chart"></div>
-                        <a href="#" class="btn btn-default btn-block">Ver Detalhes</a>
-                    </div>
-                    <!-- /.panel-body -->
                 </div>
             </div>
         </div>

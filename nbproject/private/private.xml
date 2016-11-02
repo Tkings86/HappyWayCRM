@@ -9,7 +9,14 @@
             <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/view/ClienteController.java</file>
         </group>
         <group>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/index.xhtml</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/model/DFView.java</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/cliente/Create.xhtml</file>
             <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/src/java/view/UsuarioController.java</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/dashboard.xhtml</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/template.xhtml</file>
+            <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/venda/Create.xhtml</file>
             <file>file:/C:/Users/Thiago%20Reis/Documents/NetBeansProjects/HappyWayCRM/web/templateLogin.xhtml</file>
         </group>
     </open-files>
