@@ -214,7 +214,7 @@ public class UsuarioController implements Serializable {
     
       public String login() {
         if(ejbFacade.fyndLogin(login, senha) != null){
-        return "List";
+        return "index";
         }else{
         return "Edit";
         }
